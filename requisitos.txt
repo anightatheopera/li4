@@ -5,42 +5,20 @@ ambiente de vendas online, distribuído por vários utilizadores que têm por h�
 MercadUM, os vários tipos de utilizadores eram chamados para avaliar a qualidade da adição. Após concluir o back-end da aplicação, contactaram uma equipa de design gráfico, de modo 
 a que a apresentação do website tivesse uma boa estética e fosse intuitiva.
 
-Requisitos de administração (acesso, monitorização, segurança, etc) - A REORGANIZAR:
-
-    - RA1
-    - RA2
-    - RA3
-    - RA4
-    - RA5
-    - RA6
-    - RA7
-    - RA8
-    - RA9
-    - RA10
-
-
-Requisitos de exploração (queries, relatórios, procedimentos) - A REORGANIZAR:
-
-    - RE1: cada vendedor tem de dar uma percentagem de lucros ao organizador, a ser definida pelo mesmo;
-    - RE2: para entrar numa feira um vendedor tem de pagar uma taxa de entrada, a ser definida pelo organizador;
-    - RE3: é possível aceder a uma barraca através do seu número de identificação;
-    - RE4: é possível aceder a um produto através do seu número de identificação;
-    - RE5: cada vendedor pode visualizar o seu lucro;
-    - RE6: cada organizador de feira pode visualizar o seu lucro;
-    - RE7: para utilizar o website é obrigatório efetuar log-in;
-    - RE8
-    - RE9
-    - RE10
-    - RE11
-
-
-Requisitos de descrição (objetos de dados, domínios, restrições) - A REORGANIZAR:
-
-    - RD1: quando um utilizador decide criar uma conta no MercadUM deve indicar se é um organazidor de feira, feirante ou cliente;
-    - RD2: para criar uma conta um utilizador precisa de fornecer o nome completo, data de nascimento e morada; 
-    - RD3: a caracterização de uma feira constitui o número de identificação de feira, nome da feira, organizador, data, horário, número máximo de vendedores
+    - R1: cada vendedor tem de dar uma percentagem de lucros ao organizador, a ser definida pelo mesmo;
+    - R2: para entrar numa feira um vendedor tem de pagar uma taxa de entrada, a ser definida pelo organizador;
+    - R3: é possível aceder a uma barraca através do seu número de identificação;
+    - R4: é possível aceder a um produto através do seu número de identificação;
+    - R5: cada vendedor pode visualizar o seu lucro;
+    - R6: cada organizador de feira pode visualizar o seu lucro;
+    - R7: para utilizar o website é obrigatório efetuar log-in;
+    - R8: quando um utilizador decide criar uma conta no MercadUM deve indicar se é um organazidor de feira, feirante ou cliente;
+    - R9: para criar uma conta um utilizador precisa de fornecer o nome completo, data de nascimento e morada; 
+    - R10: a caracterização de uma feira constitui o número de identificação de feira, nome da feira, organizador, data, horário, número máximo de vendedores
            e pela lista de barracas presentes na mesma;
-    - RD4: apenas ocorre uma feira de cada vez no MercadUM (a mudar talvez);
-    - RD5: a caracterização de uma barraca constitui o número de identificação de barraca, nome da barraca, vendedor, horário e lista de produtos;
-    - RD6: a caracterização de um produto constitui o número de identificação do produto, nome do produto, preço e quantidade de stock;
+    - R11: apenas ocorre uma feira de cada vez no MercadUM (a mudar talvez);
+    - R12: a caracterização de uma barraca constitui o número de identificação de barraca, nome da barraca, vendedor, horário e lista de produtos;
+    - R13: a caracterização de um produto constitui o número de identificação do produto, nome do produto, preço e quantidade de stock;
+    - R14: só pode haver uma conta para um email;
+    - R15: um cliente pode visitar todas as barracas de uma feira;
 
