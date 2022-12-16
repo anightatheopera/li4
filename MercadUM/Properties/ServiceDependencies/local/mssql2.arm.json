@@ -56,19 +56,19 @@
               "apiVersion": "2017-10-01-preview"
             },
             {
+              "apiVersion": "2017-10-01-preview",
+              "dependsOn": [
+                "mercadum"
+              ],
+              "kind": "v12.0,user",
+              "location": "[parameters('resourceLocation')]",
+              "name": "mercadum/MercadUM",
               "sku": {
                 "name": "Standard",
                 "tier": "Standard",
                 "capacity": 10
               },
-              "kind": "v12.0,user",
-              "location": "[parameters('resourceLocation')]",
-              "name": "mercadum/MercadUM",
-              "type": "Microsoft.Sql/servers/databases",
-              "apiVersion": "2017-10-01-preview",
-              "dependsOn": [
-                "mercadum"
-              ]
+              "type": "Microsoft.Sql/servers/databases"
             }
           ]
         }

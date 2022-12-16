@@ -1,0 +1,47 @@
+﻿@page "/Utilizadores"
+
+@using DataAcessLibrary
+@using DataAcessLibrary.Model
+
+@inject IUtilizadoresData _db 
+
+<h3>Utilizadores</h3>
+@if (utilizadores is null){
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data de Nascimento</th>
+                <th>Telemóvel</th>
+                <th>Morada</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var utilizador in utilizadores)
+            {
+                <tr>
+                    <td>@utilizador.Nome</td>
+                    <td>@utilizador.Email</td>
+                    <td>@utilizador.DataNascimento</td>
+                    <td>@utilizador.Telemovel</td>
+                    <td>@utilizador.Morada</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<UtilizadorModel> utilizadores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        utilizadores = await _db.GetUtilizadores();
+    }
+}
