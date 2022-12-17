@@ -1,0 +1,70 @@
+﻿@page "/Feiras"
+
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+
+
+@inject IFeirasData _dbf
+@inject IUtilizadoresData _dbu
+
+<h3>Feiras</h3>
+@if (feiras is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Data de início</th>
+                <th>Data de fim</th>
+                <th>Número de barracas</th>
+                <th>Organizador da Feira</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feira in feiras)
+            {
+                <tr>
+                    <td>@feira.Nome</td>
+                    <td>@feira.Descricao</td>
+                    <td>@feira.Data_inicio</td>
+                    <td>@feira.Data_fim</td>
+                    <td>@feira.N_Barracas</td>
+                    <td>@GetOrganizadorNome(@feira.Id_Organizador)</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<FeiraModel> feiras;
+    private List<UtilizadorModel> organizadores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        feiras = await _dbf.GetFeiras();
+        organizadores = await _dbu.GetUtilizadores();
+    }
+
+    public string GetOrganizadorNome(int id)
+    {
+        foreach (var organizador in organizadores)
+        {
+            if (organizador.isOrganizador(organizador))
+            {
+                if (organizador.Id_Utilizador == id)
+                {
+                    return organizador.Nome;
+                }
+            }
+        }
+        return "Erro!";
+    }
+}

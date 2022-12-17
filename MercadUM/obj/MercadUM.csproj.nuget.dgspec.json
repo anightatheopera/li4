@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\MercadUM.csproj": {}
+    "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\DataAcessLibrary.csproj": {
+    "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\DataAcessLibrary.csproj",
-        "projectName": "DataAcessLibrary",
-        "projectPath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\DataAcessLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj",
+        "projectName": "DataAccessLibrary",
+        "projectPath": "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj",
         "packagesPath": "C:\\Users\\rital\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\obj\\",
+        "outputPath": "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -73,20 +73,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -96,14 +82,14 @@
         }
       }
     },
-    "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\MercadUM.csproj": {
+    "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\MercadUM.csproj",
+        "projectUniqueName": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj",
         "projectName": "MercadUM",
-        "projectPath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\MercadUM.csproj",
+        "projectPath": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj",
         "packagesPath": "C:\\Users\\rital\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\obj\\",
+        "outputPath": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -125,8 +111,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\DataAcessLibrary.csproj": {
-                "projectPath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\DataAcessLibrary\\DataAcessLibrary.csproj"
+              "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj": {
+                "projectPath": "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj"
               }
             }
           }
@@ -173,24 +159,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

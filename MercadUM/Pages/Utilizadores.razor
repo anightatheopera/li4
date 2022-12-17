@@ -1,7 +1,8 @@
 ﻿@page "/Utilizadores"
 
-@using DataAcessLibrary
-@using DataAcessLibrary.Model
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+ 
 
 @inject IUtilizadoresData _db 
 
@@ -19,6 +20,7 @@ else
                 <th>Data de Nascimento</th>
                 <th>Telemóvel</th>
                 <th>Morada</th>
+                <th>Tipo de Conta</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,7 @@ else
                     <td>@utilizador.DataNascimento</td>
                     <td>@utilizador.Telemovel</td>
                     <td>@utilizador.Morada</td>
+                    <td>@utilizador.Tipo_de_conta</td>
                 </tr>
             }
         </tbody>

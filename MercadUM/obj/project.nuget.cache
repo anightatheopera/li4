@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dY4lG0OE1k3rVaklUh9D7VIxpyjCgw/ss8VNgbg4JAIkkvttoZoFAVEvpfdmULETgKMuE3vB5TZIpHKSiL3Kdg==",
+  "dgSpecHash": "3e7ls/nCMTzVogS8R3LZHFVXPp4f8bY+XQ4nY2CXXrR4WN085n5ZFuwgdGmBgBWuKlCHMRhU9+x9fA84ktNMaQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rital\\OneDrive\\Documentos\\projeto_li4\\MercadUM\\MercadUM.csproj",
+  "projectFilePath": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rital\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\rital\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -64,11 +64,7 @@
     "C:\\Users\\rital\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\rital\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
     "C:\\Users\\rital\\.nuget\\packages\\system.text.json\\4.6.0\\system.text.json.4.6.0.nupkg.sha512",
-    "C:\\Users\\rital\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\rital\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.12\\microsoft.netcore.app.host.win-x64.6.0.12.nupkg.sha512",
-    "C:\\Users\\rital\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.12\\microsoft.aspnetcore.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\rital\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.12\\microsoft.windowsdesktop.app.ref.6.0.12.nupkg.sha512",
-    "C:\\Users\\rital\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.12\\microsoft.netcore.app.ref.6.0.12.nupkg.sha512"
+    "C:\\Users\\rital\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

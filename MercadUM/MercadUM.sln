@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadUM", "MercadUM.csproj", "{A7FD38C9-E792-40A5-A76C-6EAC18EC4407}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAcessLibrary", "..\DataAcessLibrary\DataAcessLibrary.csproj", "{D3044D96-3845-42EF-B845-912E9B44D9A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLibrary", "..\DataAccessLibrary\DataAccessLibrary.csproj", "{D3044D96-3845-42EF-B845-912E9B44D9A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MercadUM"
+    "\\DataAccessLibrary",
+    "\\MercadUM",
+    "\\MercadUM\\Pages"
   ],
-  "SelectedNode": "\\MercadUM\\Properties",
+  "SelectedNode": "\\MercadUM\\MercadUM.sln",
   "PreviewInSolutionExplorer": false
 }
