@@ -1,9 +1,4 @@
 ﻿using DataAccessLibrary.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLibrary
 {
@@ -21,6 +16,7 @@ namespace DataAccessLibrary
             string sql = "select * from dbo.feiras;";
             return _db.LoadData<FeiraModel, dynamic>(sql, new { });
         }
+
 
         public Task InsertFeira(FeiraModel feira)
         {

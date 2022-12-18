@@ -3,8 +3,9 @@
     "",
     "\\DataAccessLibrary",
     "\\MercadUM",
-    "\\MercadUM\\Pages"
+    "\\MercadUM\\Pages",
+    "\\MercadUM\\Shared"
   ],
-  "SelectedNode": "\\MercadUM\\MercadUM.sln",
+  "SelectedNode": "\\DataAccessLibrary\\IUtilizadoresData.cs",
   "PreviewInSolutionExplorer": false
 }

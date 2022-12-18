@@ -6,11 +6,13 @@
 
 @inject IFeirasData _dbf
 @inject IUtilizadoresData _dbu
+@inject NavigationManager UriHelper
+
 
 <h3>Feiras</h3>
 @if (feiras is null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>A carregar...</em></p>
 }
 else
 {
@@ -29,12 +31,14 @@ else
             @foreach (var feira in feiras)
             {
                 <tr>
-                    <td>@feira.Nome</td>
+                    <td>
+                        <button @onclick=@Navigate>@feira.Nome </button>
+                    </td>
                     <td>@feira.Descricao</td>
                     <td>@feira.Data_inicio</td>
                     <td>@feira.Data_fim</td>
                     <td>@feira.N_Barracas</td>
-                    <td>@GetOrganizadorNome(@feira.Id_Organizador)</td>
+                    <td>@GetOrganizador(@feira.Id_Organizador).Nome</td>
                     
                 </tr>
             }
@@ -53,7 +57,7 @@ else
         organizadores = await _dbu.GetUtilizadores();
     }
 
-    public string GetOrganizadorNome(int id)
+    public UtilizadorModel GetOrganizador(int id)
     {
         foreach (var organizador in organizadores)
         {
@@ -61,10 +65,25 @@ else
             {
                 if (organizador.Id_Utilizador == id)
                 {
-                    return organizador.Nome;
+                    return organizador;
                 }
             }
         }
-        return "Erro!";
+        return null;
     }
+
+    void Navigate()
+    {
+        foreach(FeiraModel f in feiras)
+        {
+            UriHelper.NavigateTo(Url(f));
+        }
+        
+    }
+
+    string Url(FeiraModel f)
+    {
+        return f.Nome + "/Barracas";
+    }
+
 }

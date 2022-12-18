@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLibrary;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -33,6 +34,9 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IUtilizadoresData, UtilizadoresData>();
 builder.Services.AddTransient<IFeirasData, FeirasData>();
+builder.Services.AddTransient<IBarracasData, BarracasData>();
+builder.Services.AddTransient<IProdutosData, ProdutosData>();
+builder.Services.AddSyncfusionBlazor();
 
 var app = builder.Build();
 

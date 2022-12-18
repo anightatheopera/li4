@@ -1,0 +1,84 @@
+﻿@page "/Barracas"
+
+
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+
+
+
+@inject IUtilizadoresData _dbu
+@inject IBarracasData _dbb
+@inject IFeirasData _dbf
+@inject NavigationManager NavigationHelper
+
+<h3>Barracas</h3>
+@if (barracas is null)
+{
+    <p><em>A carregar...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Vendedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var barraca in barracas)
+            {
+                <tr>
+                    <td>@barraca.Nome</td>
+                    <td>@barraca.Descricao </td>
+                    <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<BarracaModel> barracas;
+    private List<UtilizadorModel> utilizadores;
+    private List<FeiraModel> feiras;
+
+    protected override async Task OnInitializedAsync()
+    {
+        barracas = await _dbb.GetBarracasPorFeira();
+        utilizadores = await _dbu.GetUtilizadores();
+        feiras = await _dbf.GetFeiras();
+    }
+
+    
+    public UtilizadorModel GetVendedor(int id)
+    {
+        foreach (var vendedor in utilizadores)
+        {
+            if (vendedor.isVendedor(vendedor))
+            {
+                if (vendedor.Id_Utilizador == id)
+                {
+                    return vendedor;
+                }
+            }
+        }
+        return null;
+    }
+
+    public FeiraModel GetFeira(List<BarracaModel> b)
+    {
+        int feira_id = b.First<BarracaModel>().Id_Feira;
+        foreach (var feira in feiras)
+        {
+            if (feira.Id_Feira == feira_id)
+            {
+                return feira;
+            }
+        }
+        return null;
+    }
+
+}

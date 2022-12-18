@@ -84,3 +84,16 @@ C:\Users\rital\Documents\projeto_li4\MercadUM\obj\Debug\net6.0\refint\MercadUM.d
 C:\Users\rital\Documents\projeto_li4\MercadUM\obj\Debug\net6.0\MercadUM.pdb
 C:\Users\rital\Documents\projeto_li4\MercadUM\obj\Debug\net6.0\MercadUM.genruntimeconfig.cache
 C:\Users\rital\Documents\projeto_li4\MercadUM\obj\Debug\net6.0\ref\MercadUM.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Microsoft.JSInterop.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Syncfusion.Blazor.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Syncfusion.ExcelExport.Net.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Syncfusion.Licensing.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\Syncfusion.PdfExport.Net.dll
+C:\Users\rital\Documents\projeto_li4\MercadUM\bin\Debug\net6.0\System.IO.Pipelines.dll
