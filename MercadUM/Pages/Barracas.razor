@@ -1,4 +1,4 @@
-﻿@page "/Barracas"
+﻿@page "/{Url}/Barracas"
 
 
 @using DataAccessLibrary
@@ -24,16 +24,20 @@ else
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Vendedor</th>
+                <th>Feira</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var barraca in barracas)
             {
-                <tr>
-                    <td>@barraca.Nome</td>
+                if (barraca.Id_Feira == feira.Id_Feiras)
+                {
+                    <tr>
+                        <td>@barraca.Nome</td>
                     <td>@barraca.Descricao </td>
                     <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
                 </tr>
+                }
             }
         </tbody>
     </table>
@@ -43,16 +47,27 @@ else
 @code {
     private List<BarracaModel> barracas;
     private List<UtilizadorModel> utilizadores;
-    private List<FeiraModel> feiras;
+    private FeiraModel feira;
 
     protected override async Task OnInitializedAsync()
     {
-        barracas = await _dbb.GetBarracasPorFeira();
+        barracas = GetBarracas(feira);
         utilizadores = await _dbu.GetUtilizadores();
-        feiras = await _dbf.GetFeiras();
+
     }
 
-    
+    protected override void OnInitialized()
+    {
+        if (barracas is null) Url = "NonExistentPage";
+        else
+        {
+            foreach(BarracaModel b in barracas)
+            {
+                Url = feira.Nome;
+            }
+        }
+    }
+
     public UtilizadorModel GetVendedor(int id)
     {
         foreach (var vendedor in utilizadores)
@@ -68,17 +83,30 @@ else
         return null;
     }
 
-    public FeiraModel GetFeira(List<BarracaModel> b)
+    public List<BarracaModel> GetBarracas(FeiraModel feira)
     {
-        int feira_id = b.First<BarracaModel>().Id_Feira;
-        foreach (var feira in feiras)
+        List<BarracaModel> ret = new List<BarracaModel>();
+        if (feira is null)
         {
-            if (feira.Id_Feira == feira_id)
+            return null;
+        }
+        else
+        {
+            foreach(BarracaModel b in feira.Barracas)
             {
-                return feira;
+                if (b.Id_Feira == feira.Id_Feiras)
+                {
+                    ret.Add(b);
+                }
             }
+            return ret;
         }
         return null;
     }
+
+    
+
+    [Parameter]
+    public string Url {get; set;}
 
 }

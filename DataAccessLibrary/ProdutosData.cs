@@ -13,7 +13,7 @@ namespace DataAccessLibrary
 
         public Task<List<ProdutoModel>> GetProdutosPorBarraca()
         {
-            string sql = "select * from dbo.produtos b inner join dbo.barracas f on f.barracas = b.Id_barraca;";
+            string sql = "SELECT * FROM dbo.barracas JOIN dbo.produtos ON (dbo.barracas.Id_barracas = dbo.produtos.Id_barraca);";
             return _db.LoadData<ProdutoModel, dynamic>(sql, new { });
         }
 

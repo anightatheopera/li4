@@ -1,4 +1,5 @@
 ﻿using DataAccessLibrary.Model;
+using System;
 
 namespace DataAccessLibrary
 {
@@ -25,5 +26,6 @@ namespace DataAccessLibrary
 
             return _db.SaveData(sql, feira);
         }
+
     }
 }

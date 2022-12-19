@@ -10,6 +10,7 @@
 
         public int Id_Feira { get; set; }
         public virtual UtilizadorModel Vendedor { get; set; }
+        public virtual FeiraModel Feira { get; set; }
 
     }
 }
