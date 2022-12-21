@@ -1,0 +1,104 @@
+﻿@page "/identity/account/register"
+
+<h3>Register</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/src/input.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body class="body padding">
+    <!--Logo para voltar para o menu default-->
+    <div className="div0">
+        <a href="#">
+            <span class="span1">Workflow</span>
+            <image src="/images/IconM.png" width="75" height="75" />
+        </a>
+    </div>
+
+    <!--Register-->
+    <div class="sectionl paddingb">
+
+        <h1 class="word2">Register</h1>
+
+        <form class="form">
+            <input type="radio" id="user" name="type_user" value="user">
+            <label for="user" class="word8 marginl">Cliente</label>
+            <input type="radio" id="marketer" name="type_user" value="marketer">
+            <label for="marketer" class="word8 marginl">Feirante</label>
+            <input type="radio" id="owner" name="type_user" value="owner">
+            <label for="owner" class="word8 marginl">Organizador de Feiras</label>
+        </form>
+
+        <h1 class="word7">Nome</h1>
+        <div class="div3">
+            <input type="text" id="nome" class="search" placeholder="Nome Complento">
+        </div>
+        <h1 class="word7">Email</h1>
+        <div class="div3">
+            <input type="email" id="email" class="search" placeholder="Email">
+        </div>
+        <h1 class="word7">Password</h1>
+        <div class="div3">
+            <input type="password" id="pass" class="search" placeholder="Password">
+        </div>
+        <h1 class="word7">Confirma a Password</h1>
+        <div class="div3">
+            <input type="password" id="pass1" class="search" placeholder="Password">
+        </div>
+        <h1 class="word7">Data de nascimento</h1>
+        <div class="div3">
+            <input type="date" id="date" class="search">
+        </div>
+        <h1 class="word7">Morada</h1>
+        <div class="div3">
+            <input type="text" id="morada" class="search" placeholder="Morada">
+        </div>
+        <h1 class="word7">Telemovel</h1>
+        <div class="div3">
+            <input type="text" id="tele" class="search" placeholder="Telemovel">
+        </div>
+        <h1 class="word7">Metodo de Pagamento</h1>
+        <div class="div3">
+            <input type="text" id="pag" class="search" placeholder="Pagamento">
+        </div>
+
+
+        <button type="button" class="criar" onclick="">Criar Conta</button>
+    </div>
+
+
+    <!--Footer-->
+    <div class="footer">
+
+        <!--Logo-->
+        <a href="#">
+            <span class="span1">Workflow</span>
+            <image src="/images/IconM.png" width="75" height="75" />
+        </a>
+
+        <!--Div das Faq-->
+        <div class="section">
+            <h1 class="word4">Politica de Cookies:</h1>
+            <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y" class="word5">FAQ</a>
+        </div>
+
+        <!--Nome-->
+        <h1 class="word6"> MercadUM</h1>
+
+        <!--Div dos Contactos-->
+        <div class="section">
+            <h1 class="word4">Contactos:</h1>
+            <h1 class="word5">info@gmail.com</h1>
+            <h1 class="word5">933333333</h1>
+            <div class="midia">
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src="/images/facebook.svg" alt="facebook" width="25" height="25" /></a>
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src="/images/instagram.svg" alt="facebook" width="25" height="25" /></a>
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src="/images/twitter.svg" alt="facebook" width="25" height="25" /></a>
+            </div>
+        </div>
+
+    </div>
+</body>
