@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Login.razor" />
+    <Content Remove="Pages\Register.razor" />
+    <Content Remove="Pages\Utilizadores.razor" />
     <Content Remove="wwwroot\css\input.css" />
   </ItemGroup>
 

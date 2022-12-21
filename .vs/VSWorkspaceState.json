@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\DataAccessLibrary",
+    "\\DataAccessLibrary\\bin",
     "\\MercadUM",
     "\\MercadUM\\Pages",
     "\\MercadUM\\Shared"

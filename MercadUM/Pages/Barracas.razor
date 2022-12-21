@@ -30,14 +30,13 @@ else
         <tbody>
             @foreach (var barraca in barracas)
             {
-                if (barraca.Id_Feira == feira.Id_Feiras)
-                {
+
                     <tr>
                         <td>@barraca.Nome</td>
                     <td>@barraca.Descricao </td>
                     <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
                 </tr>
-                }
+                
             }
         </tbody>
     </table>
@@ -51,7 +50,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        barracas = GetBarracas(feira);
+        barracas = await _dbb.GetBarracas();
         utilizadores = await _dbu.GetUtilizadores();
 
     }
