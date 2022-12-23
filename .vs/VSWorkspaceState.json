@@ -1,12 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DataAccessLibrary",
-    "\\DataAccessLibrary\\bin",
-    "\\MercadUM",
-    "\\MercadUM\\Pages",
-    "\\MercadUM\\Shared"
+    ""
   ],
-  "SelectedNode": "\\MercadUM\\MercadUM.sln",
   "PreviewInSolutionExplorer": false
 }

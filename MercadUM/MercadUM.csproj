@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,8 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\ApplicationUser.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221222180559_AppUser.cs" />
+    <Compile Remove="Data\Migrations\20221222180559_AppUser.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Component.razor" />
+    <Content Remove="Pages\Component1.razor" />
     <Content Remove="Pages\Login.razor" />
-    <Content Remove="Pages\Register.razor" />
     <Content Remove="Pages\Utilizadores.razor" />
     <Content Remove="wwwroot\css\input.css" />
   </ItemGroup>

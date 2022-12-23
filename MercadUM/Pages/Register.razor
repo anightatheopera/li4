@@ -1,0 +1,119 @@
+﻿@page "/identity/account/register2"
+
+<h3>Register</h3>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - MercadUM</title>
+
+    
+        <link rel="stylesheet" href="/Identity/lib/bootstrap/dist/css/bootstrap.css" />
+    
+    <link href="/css/input.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&display=swap" rel="stylesheet"> 
+</head>
+<body class="body padding">
+    <!--Logo para voltar para o menu default-->
+    <div className="div0">
+        <a href="#">
+          <span class="span1">Workflow</span>
+          <image src="/images/IconM.png" width="75" height="75" />
+        </a>
+    </div>
+
+    <!--Register-->
+    <div class="sectionl paddingb">
+        
+        <h1 class="word2">Register</h1>    
+
+        <form class="form">
+            <input type="radio" id="user" name="type_user" value="user">
+            <label for="user" class="word8 marginl">Cliente</label>
+            <input type="radio" id="marketer" name="type_user" value="marketer">
+            <label for="marketer" class="word8 marginl">Feirante</label>
+            <input type="radio" id="owner" name="type_user" value="owner">
+            <label for="owner" class="word8 marginl">Organizador de Feiras</label>
+          </form>
+
+        <form id="registerForm" method="post" action="/Identity/Account/Register">
+        <h1 class="word7">Nome</h1>
+            <input class="div3" autocomplete="username" aria-required="true" type="Nome" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_UserName" name="Input.UserName" value="" />
+            
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Email</h1>
+            <input class="div3" autocomplete="username" aria-required="true" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+           
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Password</h1>
+            <input class="div3" autocomplete="new-password" aria-required="true" type="password" data-val="true" data-val-length="The Password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Input_Password" maxlength="100" name="Input.Password" />
+       
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+        <h1 class="word7">Confirma a Password</h1>
+            <input class="div3" autocomplete="new-password" aria-required="true" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="Input_ConfirmPassword" name="Input.ConfirmPassword" />
+           
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.ConfirmPassword" data-valmsg-replace="true"></span>
+        <h1 class="word7">Data de nascimento</h1>
+            <input class="div3" autocomplete="Data de Nascimento" aria-required="true" type="datetime" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_DataNascimento" name="Input.DataNascimento" value="" />
+          
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Morada</h1>
+            <input class="div3" autocomplete="Morada" aria-required="true" type="text" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+           
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Telemovel</h1>
+            <input class="div3" autocomplete="username" aria-required="true" type="number" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Nr_Telemovel" name="Input.Nr_Telemovel" value="" />
+         
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Metodo de Pagamento</h1>
+            <input class="div3" autocomplete="username" aria-required="true" type="text" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Pagamento" name="Input.Pagamento" value="" />
+           
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+
+
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8OmnHBVLshFFieVdr8kc7AX2iOJbiQCTMkkMq3xwfFYfhMyLfluG1pQmHinKRAseA3fBQcfE8-wyMm8G88uwo9dgS3AafA1Aq8xl0e9NeXfnWWITHEuUdxSJA1HSy7TxlUqrOK9Wd_aJSbG-BcJYJAc" />
+        </form>
+
+    </div>
+  
+
+    
+    
+    <!--Footer-->
+    <div class="footer">
+
+        <!--Logo-->
+        <a href="#">
+            <span class="span1">Workflow</span>
+            <image src="/images/IconM.png" width="75" height="75" />
+        </a>
+
+        <!--Div das Faq-->
+        <div class="section">
+            <h1 class="word4">Politica de Cookies:</h1>
+            <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"class="word5">FAQ</a>
+        </div>
+
+        <!--Nome-->
+        <h1 class="word6"> MercadUM</h1>
+
+        <!--Div dos Contactos-->
+        <div class="section">
+            <h1 class="word4">Contactos:</h1>
+            <h1 class="word5">info@gmail.com</h1>
+            <h1 class="word5">933333333</h1>
+            <div class="midia">
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src = "/images/facebook.svg" alt="facebook" width="25" height="25"/></a>
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src = "/images/instagram.svg" alt="facebook" width="25" height="25"/></a>
+                <a href="https://www.youtube.com/watch?v=ovaixqyLO3Y"><img src = "/images/twitter.svg" alt="facebook" width="25" height="25"/></a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
