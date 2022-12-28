@@ -28,7 +28,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var barraca in barracas)
+            @foreach (var barraca in GetBarracas())
             {
 
                     <tr>
@@ -44,27 +44,36 @@ else
 
 
 @code {
+
     private List<BarracaModel> barracas;
     private List<UtilizadorModel> utilizadores;
     private FeiraModel feira;
 
+
+    [Parameter]
+    public string Url { get; set; }
+
+    public FeiraModel GetFeira (List<FeiraModel> feiras, string NomeFeira ) {
+        foreach (var f in feiras)
+        {
+            System.Diagnostics.Debug.WriteLine(NomeFeira + "-------------------" + f.Nome);
+            if (f.Nome == NomeFeira)
+            {
+
+                return f;
+            }
+        }
+        return null;
+    }
+
+
+
     protected override async Task OnInitializedAsync()
     {
+        feira = GetFeira(await _dbf.GetFeiras(), Url);
         barracas = await _dbb.GetBarracas();
         utilizadores = await _dbu.GetUtilizadores();
 
-    }
-
-    protected override void OnInitialized()
-    {
-        if (barracas is null) Url = "NonExistentPage";
-        else
-        {
-            foreach(BarracaModel b in barracas)
-            {
-                Url = feira.Nome;
-            }
-        }
     }
 
     public UtilizadorModel GetVendedor(string id)
@@ -82,30 +91,20 @@ else
         return null;
     }
 
-    public List<BarracaModel> GetBarracas(FeiraModel feira)
+    public List<BarracaModel> GetBarracas()
     {
         List<BarracaModel> ret = new List<BarracaModel>();
-        if (feira is null)
+        foreach (var b in barracas)
         {
-            return null;
-        }
-        else
-        {
-            foreach(BarracaModel b in feira.Barracas)
+            if (b.Id_Feira == feira.Id_Feiras)
             {
-                if (b.Id_Feira == feira.Id_Feiras)
-                {
-                    ret.Add(b);
-                }
+                ret.Add(b);
             }
-            return ret;
         }
-        return null;
+        return ret;
+  
     }
 
     
-
-    [Parameter]
-    public string Url {get; set;}
 
 }

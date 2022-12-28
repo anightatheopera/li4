@@ -6,5 +6,6 @@ namespace DataAccessLibrary
     {
         Task<List<FeiraModel>> GetFeiras();
         Task InsertFeira(FeiraModel feira);
+
     }
 }

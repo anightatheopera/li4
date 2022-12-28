@@ -32,7 +32,7 @@ else
             {
                 <tr>
                     <td>
-                        <button @onclick=@Navigate>@feira.Nome </button>
+                        <button @onclick="() => Navigate(feira)"> @feira.Nome </button>
                     </td>
                     <td>@feira.Descricao</td>
                     <td>@feira.Data_inicio</td>
@@ -72,12 +72,12 @@ else
         return null;
     }
 
-    void Navigate()
+    void Navigate(FeiraModel f)
     {
-        foreach(FeiraModel f in feiras)
-        {
+     
+        
             UriHelper.NavigateTo(Url(f));
-        }
+        
         
     }
 
