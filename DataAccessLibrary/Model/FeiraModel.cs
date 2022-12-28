@@ -8,7 +8,7 @@
         public string Data_fim { get; set; }
         public int N_Barracas { get; set; }
         public int Id_Feiras { get; set; }
-        public int Id_Organizador { get; set; }
+        public string Id_Organizador { get; set; }
         public virtual UtilizadorModel Organizador { get; set; }
         public virtual List<BarracaModel>? Barracas { get; set; }
     }

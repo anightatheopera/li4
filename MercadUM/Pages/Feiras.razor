@@ -57,7 +57,7 @@ else
         organizadores = await _dbu.GetUtilizadores();
     }
 
-    public UtilizadorModel GetOrganizador(int id)
+    public UtilizadorModel GetOrganizador(string id)
     {
         foreach (var organizador in organizadores)
         {
