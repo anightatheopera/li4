@@ -5,6 +5,6 @@ namespace DataAccessLibrary
     public interface IBarracasData
     {
         Task InsertBarraca(BarracaModel barraca);
-        public Task<List<BarracaModel>> GetBarracas();
+        Task<List<BarracaModel>> GetBarracas();
     }
 }

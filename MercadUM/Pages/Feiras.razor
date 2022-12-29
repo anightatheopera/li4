@@ -76,14 +76,14 @@ else
     {
      
         
-            UriHelper.NavigateTo(Url(f));
+            UriHelper.NavigateTo(UrlFeira(f));
         
         
     }
 
-    string Url(FeiraModel f)
+    string UrlFeira(FeiraModel f)
     {
-        return f.Nome + "/Barracas";
+        return "/Barracas/" + f.Nome;
     }
 
 }

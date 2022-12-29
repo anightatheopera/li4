@@ -1,0 +1,89 @@
+﻿@page "/Feiras"
+
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+
+
+@inject IFeirasData _dbf
+@inject IUtilizadoresData _dbu
+@inject NavigationManager UriHelper
+
+
+<h3>Feiras</h3>
+@if (feiras is null)
+{
+    <p><em>A carregar...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Data de início</th>
+                <th>Data de fim</th>
+                <th>Número de barracas</th>
+                <th>Organizador da Feira</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var feira in feiras)
+            {
+                <tr>
+                    <td>
+                        <button @onclick="() => Navigate(feira)"> @feira.Nome </button>
+                    </td>
+                    <td>@feira.Descricao</td>
+                    <td>@feira.Data_inicio</td>
+                    <td>@feira.Data_fim</td>
+                    <td>@feira.N_Barracas</td>
+                    <td>@GetOrganizador(@feira.Id_Organizador).Nome</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<FeiraModel> feiras;
+    private List<UtilizadorModel> organizadores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        feiras = await _dbf.GetFeiras();
+        organizadores = await _dbu.GetUtilizadores();
+    }
+
+    public UtilizadorModel GetOrganizador(string id)
+    {
+        foreach (var organizador in organizadores)
+        {
+            if (organizador.isOrganizador(organizador))
+            {
+                if (organizador.Id_Utilizador == id)
+                {
+                    return organizador;
+                }
+            }
+        }
+        return null;
+    }
+
+    void Navigate(FeiraModel f)
+    {
+
+
+        UriHelper.NavigateTo(Url(f));
+
+
+    }
+
+    string Url(FeiraModel f)
+    {
+        return f.Nome + "/Barracas";
+    }
+
+}
