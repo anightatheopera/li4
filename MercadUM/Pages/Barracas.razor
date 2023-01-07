@@ -1,4 +1,4 @@
-﻿@page "/Barracas/{UrlFeira}/"
+﻿@page "/{UrlFeira}/Barracas/"
 
 
 @using DataAccessLibrary
@@ -118,7 +118,7 @@ else
 
     string UrlBarraca(BarracaModel b)
     {
-        return "/Produtos/"  + b.Nome;
+        return  b.Nome + "/Produtos/";
     }
 
 
