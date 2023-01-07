@@ -1,71 +1,68 @@
-﻿@page "/{UrlBarracas}/Produtos/"
-
+﻿@page "/{UrlProduto}/"
 
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
 @using Microsoft.AspNetCore.Http.Extensions;
 
 
-
 @inject IUtilizadoresData _dbu
-@inject IProdutosData _dbp
 @inject IBarracasData _dbb
 @inject IFeirasData _dbf
+@inject IProdutosData _dbp
 @inject NavigationManager UriHelper
 
-<h3>Produtos</h3>
-@if (produtos is null)
+<h3>Produto</h3>
+@if (GetProduto(produtos,UrlProduto) is null)
 {
-        <p><em>A carregar...</em></p>
+    <p><em>A carregar...</em></p>
 }
 else
-{      
-        <table class="table">
-            <thead>
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+
                 <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Stock</th>
+
+                    <td>@GetProduto(produtos,UrlProduto).Nome </td>
+                    <td>@GetProduto(produtos,UrlProduto).Descricao </td>
+                    <td>@GetProduto(produtos,UrlProduto).Preco</td>
+                    <td>@GetProduto(produtos,UrlProduto).Stock</td>
+
                 </tr>
-            </thead>
-            <tbody>
 
-            @foreach (var produto in GetProdutos())
-            {
-
-                            <tr>
-                          
-                                <td>@produto.Nome</td>
-                            <td>@produto.Descricao </td>
-                            <td>@produto.Preco</td>
-                            <td>@produto.Stock</td>
-
-                        </tr>
-
-            }
-            </tbody>
-        </table>
+            
+        </tbody>
+    </table>
 }
 
 
 @code {
 
-    private List<ProdutoModel> produtos;
-    private List<UtilizadorModel> utilizadores;
-    private BarracaModel barraca;
-
+    private List<ProdutoModel> produtos = _dbp.GetProdutos();
 
     [Parameter]
-    public string UrlBarracas { get; set; }
+    public string UrlProduto { get; set; }
 
-    public BarracaModel GetBarracas(List<BarracaModel> barracas, string NomeBarraca)
+    protected override async Task OnInitializedAsync()
+    {
+        produtos = await _dbp.GetProdutos();
+    }
+
+    public ProdutoModel GetProduto(List<ProdutoModel> produtos, string nome)
     {
 
-        foreach (var b in barracas )
+        foreach (var b in produtos)
         {
-            System.Diagnostics.Debug.WriteLine(b.Id_Barraca + "-------------------" + b.Nome);
-            if (b.Nome == NomeBarraca)
+
+            if (b.Nome == nome)
             {
 
                 return b;
@@ -73,56 +70,6 @@ else
         }
         return null;
     }
-
-
-
-    protected override async Task OnInitializedAsync()
-    {
-        barraca = GetBarracas(await _dbb.GetBarracas(), UrlBarracas);
-        produtos = await _dbp.GetProdutos();
-        utilizadores = await _dbu.GetUtilizadores();
-
-    }
-
-    public UtilizadorModel GetVendedor(string id)
-    {
-        foreach (var vendedor in utilizadores)
-        {
-            if (vendedor.isVendedor(vendedor))
-            {
-                if (vendedor.Id_Utilizador == id)
-                {
-                    return vendedor;
-                }
-            }
-        }
-        return null;
-    }
-
-    public List<ProdutoModel> GetProdutos()
-    {
-        List<ProdutoModel> ret = new List<ProdutoModel>();
-
-        foreach (var p in produtos)
-        {
-            if (p.Nome == "cinto") {
-                ret.Add(p);
-                System.Diagnostics.Debug.WriteLine(p.Nome + "-------------------" + p.Id_Barraca + "oi" + barraca.Id_Barraca); }
-            if (p.Id_Barraca == barraca.Id_Barraca)
-            {   
-                
-                ret.Add(p);
-            }
-        }
-        return ret;
-
-    }
-
- 
-
-
-
-
 
 
 }

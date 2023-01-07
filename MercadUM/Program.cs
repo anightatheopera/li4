@@ -38,6 +38,7 @@ builder.Services.AddTransient<IBarracasData, BarracasData>();
 builder.Services.AddTransient<IProdutosData, ProdutosData>();
 builder.Services.AddSyncfusionBlazor();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

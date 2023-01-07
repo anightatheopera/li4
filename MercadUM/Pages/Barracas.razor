@@ -26,6 +26,7 @@ else
                 <th>Descrição</th>
                 <th>Vendedor</th>
                 <th>Feira</th>
+                <th>ID</th>
             </tr>
         </thead>
         <tbody>
@@ -33,10 +34,13 @@ else
             {
 
                     <tr>
-                      <button @onclick="() => Navigate(barraca)"> @barraca.Nome </button>
-                        <td>@barraca.Nome</td>
+                    <td>
+                        <button @onclick="() => Navigate(barraca)"> @barraca.Nome </button>
+                    </td>
                     <td>@barraca.Descricao </td>
                     <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
+                    <td>@UrlFeira </td>
+                    <td>@barraca.Id_Barraca</td>
                 </tr>
                 
             }
@@ -55,13 +59,13 @@ else
     [Parameter]
     public string UrlFeira { get; set; }
 
-    public FeiraModel GetFeira (List<FeiraModel> feiras, string NomeFeira ) {
+
+    public FeiraModel GetFeira (List<FeiraModel> feiras, string NomeFeira) {
         foreach (var f in feiras)
         {
-            System.Diagnostics.Debug.WriteLine(NomeFeira + "-------------------" + f.Nome);
+            System.Diagnostics.Debug.WriteLine("nome da feira " + NomeFeira + "-------------------" + f.Nome);
             if (f.Nome == NomeFeira)
             {
-
                 return f;
             }
         }

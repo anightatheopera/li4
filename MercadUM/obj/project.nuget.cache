@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s8BEwaO5oM4st0sKyAKVl97DHevdfsk51XDYn2tXcId/nJOb/k1ZuWUmpM4CpFOEG2v4oTov8lf7LG+dj8wqrQ==",
+  "dgSpecHash": "zGJYIb1XSzWRuWYoXfV4sd0hnM03E9IGYJ0vl9hakyoNawsc6U/SH0OY9uPIst6VyCTuYBn3QOG95k55ZIrcIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\MercadUM.csproj",
+  "projectFilePath": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\MercadUM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rital\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\rital\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

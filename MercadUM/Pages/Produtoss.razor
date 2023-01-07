@@ -1,0 +1,136 @@
+﻿@page "/{UrlBarracas}/Produtos/"
+
+
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+@using Microsoft.AspNetCore.Http.Extensions;
+
+
+
+@inject IUtilizadoresData _dbu
+@inject IProdutosData _dbp
+@inject IBarracasData _dbb
+@inject IFeirasData _dbf
+@inject NavigationManager UriHelper
+
+<h3>Produtos</h3>
+@if (produtos is null)
+{
+        <p><em>A carregar...</em></p>
+}
+else
+{      
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var produto in GetProdutos())
+            {
+
+                            <tr>
+
+                    <td>
+                        <button @onclick="() => Navigate(produto)"> @produto.Nome </button>
+                    </td>
+                            <td>@produto.Descricao </td>
+                            <td>@produto.Preco</td>
+                            <td>@produto.Stock</td>
+
+                        </tr>
+
+            }
+            </tbody>
+        </table>
+}
+
+
+@code {
+
+    private List<ProdutoModel> produtos;
+    private List<UtilizadorModel> utilizadores;
+    private BarracaModel barraca;
+
+    [Parameter]
+    public string UrlBarracas { get; set; }
+
+    public BarracaModel GetBarracas(List<BarracaModel> barracas, string NomeBarraca)
+    {
+
+        foreach (var b in barracas )
+        {
+            System.Diagnostics.Debug.WriteLine(b.Id_Barraca + "-------------------" + b.Nome);
+            if (b.Nome == NomeBarraca)
+            {
+
+                return b;
+            }
+        }
+        return null;
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        barraca = GetBarracas(await _dbb.GetBarracas(), UrlBarracas);
+        produtos = await _dbp.GetProdutos();
+        utilizadores = await _dbu.GetUtilizadores();
+
+    }
+
+    public UtilizadorModel GetVendedor(string id)
+    {
+        foreach (var vendedor in utilizadores)
+        {
+            if (vendedor.isVendedor(vendedor))
+            {
+                if (vendedor.Id_Utilizador == id)
+                {
+                    return vendedor;
+                }
+            }
+        }
+        return null;
+    }
+
+    
+    public List<ProdutoModel> GetProdutos()
+    {
+        List<ProdutoModel> ret = new List<ProdutoModel>();
+        foreach (var p in produtos)
+        {
+            if (p.Id_Barraca == barraca.Id_Feira)
+            {
+                ret.Add(p);
+            }
+        }
+        return ret;
+
+    }
+    
+    void Navigate(ProdutoModel p)
+    {
+
+        UriHelper.NavigateTo(UrlProduto(p));
+
+
+    }
+
+    string UrlProduto(ProdutoModel p)
+    {
+        return barraca.Nome + p.Nome;
+    }
+
+
+
+
+
+
+}

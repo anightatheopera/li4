@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RV9MxJE52yeKCgqtuHFOpQYCrzg43DDN0fjz9q+hZo22Mp0snWVZ+IPcXt93dcsqnxC0i4XdjCTxthM0bywrkQ==",
+  "dgSpecHash": "lBRLnJrF0IqMiFrlDfuaVGOAZHVx3UHtq9GNEyPuBFkFN2YCrgyFfRR1wLYCUUANLy+/xCBOl1FDKqnZ/wB59Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rital\\Documents\\projeto_li4\\DataAccessLibrary\\DataAccessLibrary.csproj",
+  "projectFilePath": "C:\\Users\\rital\\Documents\\li4\\DataAccessLibrary\\DataAccessLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rital\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\rital\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

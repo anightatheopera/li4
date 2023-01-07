@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fPLH3Px0MQh6Gk/826AJ0k+gwo/UiXJMOhlgHoHXV7I=",
+  "Hash": "Td+X5mJuS6iRQRXAjpdI+NEYNwU5DVNUJKjXsxwky5k=",
   "Source": "MercadUM",
   "BasePath": "_content/MercadUM",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "MercadUM\\wwwroot",
       "Source": "MercadUM",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "Pattern": "**"
     }
@@ -2652,10 +2652,10 @@
       "OriginalItemSpec": "C:\\Users\\rital\\.nuget\\packages\\syncfusion.blazor\\20.3.0.61\\staticwebassets\\styles\\tailwind-dark.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MercadUM.styles.css",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MercadUM.styles.css",
       "SourceId": "MercadUM",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "MercadUM.styles.css",
       "AssetKind": "All",
@@ -2666,13 +2666,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MercadUM.styles.css"
+      "OriginalItemSpec": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\MercadUM.styles.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MercadUM.bundle.scp.css",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MercadUM.bundle.scp.css",
       "SourceId": "MercadUM",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "MercadUM.bundle.scp.css",
       "AssetKind": "All",
@@ -2683,13 +2683,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MercadUM.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MercadUM.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -2703,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -2720,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -2737,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -2754,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -2771,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -2788,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -2805,10 +2805,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -2822,10 +2822,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -2839,10 +2839,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -2856,10 +2856,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -2873,10 +2873,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\css\\site.css",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -2890,10 +2890,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\favicon.ico",
       "SourceId": "MercadUM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\rital\\Documents\\projeto_li4\\MercadUM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rital\\Documents\\li4\\MercadUM\\wwwroot\\",
       "BasePath": "_content/MercadUM",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
