@@ -10,9 +10,16 @@
 @inject IFeirasData _dbf
 @inject IProdutosData _dbp
 @inject NavigationManager UriHelper
+@inject HttpClient Http
+@inject IJSRuntime JS
 
 <h3>Produto</h3>
-@if (GetProduto(produtos,UrlProduto) is null)
+<p>
+    <img id="image" />
+</p>
+
+
+@if (produto is null)
 {
     <p><em>A carregar...</em></p>
 }
@@ -30,11 +37,10 @@ else
         <tbody>
 
                 <tr>
-
-                    <td>@GetProduto(produtos,UrlProduto).Nome </td>
-                    <td>@GetProduto(produtos,UrlProduto).Descricao </td>
-                    <td>@GetProduto(produtos,UrlProduto).Preco</td>
-                    <td>@GetProduto(produtos,UrlProduto).Stock</td>
+                    <td>@produto.Nome </td>
+                    <td>@produto.Descricao </td>
+                    <td>@produto.Preco</td>
+                    <td>@produto.Stock</td>
 
                 </tr>
 
@@ -46,7 +52,8 @@ else
 
 @code {
 
-    private List<ProdutoModel> produtos = _dbp.GetProdutos();
+    private List<ProdutoModel> produtos;
+    private ProdutoModel produto;
 
     [Parameter]
     public string UrlProduto { get; set; }
@@ -54,6 +61,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         produtos = await _dbp.GetProdutos();
+        produto = GetProduto(produtos, UrlProduto);
     }
 
     public ProdutoModel GetProduto(List<ProdutoModel> produtos, string nome)
@@ -71,5 +79,17 @@ else
         return null;
     }
 
+    private async Task<Stream> GetImageStreamAsync()
+    {
+        return await Http.GetStreamAsync(
+            "https://avatars.githubusercontent.com/u/9141961");
+    }
+
+    private async Task SetImageAsync()
+    {
+        var imageStream = await GetImageStreamAsync();
+        var dotnetImageStream = new DotNetStreamReference(imageStream);
+        await JS.InvokeVoidAsync("setImage", "image", dotnetImageStream);
+    }
 
 }
