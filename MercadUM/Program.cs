@@ -1,5 +1,4 @@
 using MercadUM.Areas.Identity;
-using MercadUM.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -13,8 +12,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccessLibrary;
 using Syncfusion.Blazor;
+using Microsoft.OData.Edm;
+using DataAccessLibrary.Data;
+using System.Configuration;
+using MercadUM.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -23,16 +25,16 @@ builder.Logging.AddConsole();
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+               options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<UtilizadorModel, IdentityRole>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<UtilizadoresData>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
-builder.Services.AddTransient<IUtilizadoresData, UtilizadoresData>();
+builder.Services.AddTransient<UtilizadoresData>();
 builder.Services.AddTransient<IFeirasData, FeirasData>();
 builder.Services.AddTransient<IBarracasData, BarracasData>();
 builder.Services.AddTransient<IProdutosData, ProdutosData>();
@@ -68,7 +70,8 @@ app.MapFallbackToPage("/_Host");
 
 app.Run();
 
-namespace MercadUM{
+namespace MercadUM
+{
     class Program { 
     static void Main(string[] args)
         {

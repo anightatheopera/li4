@@ -1,13 +1,17 @@
 ﻿@page "/{UrlFeira}/Barracas/"
 
 
+@using DataAccessLibrary.Data
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
-@using Microsoft.AspNetCore.Http.Extensions;
+@using MercadUM.Data;
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Identity;
 
 
 
-@inject IUtilizadoresData _dbu
+
+@inject UtilizadoresData _dbu
 @inject IBarracasData _dbb
 @inject IFeirasData _dbf
 @inject NavigationManager UriHelper

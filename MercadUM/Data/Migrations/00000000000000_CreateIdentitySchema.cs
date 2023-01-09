@@ -40,7 +40,13 @@ namespace MercadUM.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    DataNascimento = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: true),
+                    TipoDeConta = table.Column<string>(nullable: true),
+                    Morada = table.Column<string>(nullable: true),
+                    Nr_Telemovel = table.Column<string>(nullable: true),
+                    Pagamento = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

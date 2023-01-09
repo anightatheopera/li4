@@ -3,20 +3,17 @@
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
 @using Microsoft.AspNetCore.Http.Extensions;
+@using DataAccessLibrary.Data;
 
 
-@inject IUtilizadoresData _dbu
+@inject UtilizadoresData _dbu
 @inject IBarracasData _dbb
 @inject IFeirasData _dbf
 @inject IProdutosData _dbp
 @inject NavigationManager UriHelper
-@inject HttpClient Http
-@inject IJSRuntime JS
+
 
 <h3>Produto</h3>
-<p>
-    <img id="image" />
-</p>
 
 
 @if (produto is null)
@@ -25,33 +22,51 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-
-                <tr>
-                    <td>@produto.Nome </td>
-                    <td>@produto.Descricao </td>
-                    <td>@produto.Preco</td>
-                    <td>@produto.Stock</td>
-
-                </tr>
-
-            
-        </tbody>
-    </table>
+     <div class="container">
+        <div class="row">
+            <div class="col-12 mb-3"><h4>Detalhes do Produto</h4></div>
+        </div>
+        <div class="card product-details">
+            <div class="card-body">
+                <div class="row my-2">
+                    <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="@GetImage(produto)" class="product-image img-fluid" alt="product image" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7">
+                            <h4>@produto.Nome</h4>
+                        <div class="d-flex flex-wrap mt-1">
+                            <h4 class="text-primary mr-1">@produto.Preco€</h4>
+                        </div>
+                        @if (@produto.Stock > 0){
+                        <p>Em stock <span class="text-success"></span></p>
+                        }
+                        else{
+                        <p>Produto esgotado <span class="text-danger"></span></p>
+                        }
+                        <p>
+                            @produto.Descricao
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row pt-1">
+                            @if (@produto.Stock > 0)
+                            {
+                                <a href="#" class="btn btn-primary mr-0 mr-sm-2 mb-1 mb-sm-0">
+                                    <i class="fas fa-shopping-basket mr-2"></i>
+                                    <span>Adicionar ao Carrinho</span>
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 }
 
 
 @code {
-
+    private string? imageSource;
     private List<ProdutoModel> produtos;
     private ProdutoModel produto;
 
@@ -79,17 +94,11 @@ else
         return null;
     }
 
-    private async Task<Stream> GetImageStreamAsync()
+    public string GetImage(ProdutoModel p)
     {
-        return await Http.GetStreamAsync(
-            "https://avatars.githubusercontent.com/u/9141961");
+        return "/images/produtos/" + p.Nome + ".jpg";
     }
 
-    private async Task SetImageAsync()
-    {
-        var imageStream = await GetImageStreamAsync();
-        var dotnetImageStream = new DotNetStreamReference(imageStream);
-        await JS.InvokeVoidAsync("setImage", "image", dotnetImageStream);
-    }
+    
 
 }

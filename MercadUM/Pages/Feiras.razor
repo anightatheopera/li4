@@ -1,13 +1,17 @@
 ﻿@page "/Feiras"
 
+@using DataAccessLibrary.Data
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
+@using MercadUM.Data;
+@using Microsoft.AspNetCore.Http.Extensions
+@using Microsoft.AspNetCore.Identity;
 
 
+@inject UtilizadoresData _dbu
+@inject IBarracasData _dbb
 @inject IFeirasData _dbf
-@inject IUtilizadoresData _dbu
 @inject NavigationManager UriHelper
-
 
 <h3>Feiras</h3>
 @if (feiras is null)
