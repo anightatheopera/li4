@@ -5,3 +5,4 @@ trabalho de LI4 2022/2023
 * Jéssica Fernandes ([@MFJess](https://github.com/MFJess))
 * Rafael dos Anjos Arêas ([@rafareas](https://github.com/rafareas))
 * Rita Lino ([@anightatheopera](https://github.com/anightatheopera))
+* Miguel Neiva ([@Miguel-Neiva](https://github.com/Miguel-Neiva))
