@@ -1,5 +1,7 @@
-DataAccessLibrary/bin/
-DataAccessLibrary/obj/
-MercadUM/.vs/MercadUM/config/applicationhost.config
-MercadUM/obj/
-MercadUM/bin/
+DataAccessLibrary\bin\
+DataAccessLibrary\obj\
+MercadUM\.vs\MercadUM
+MercadUM\obj\
+MercadUM\bin\
+.vs\
+MercadUM\.vs\
