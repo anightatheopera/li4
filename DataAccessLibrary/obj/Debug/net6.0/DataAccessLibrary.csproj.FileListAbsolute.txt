@@ -1,66 +1,9 @@
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\Documents\projeto_li4\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadoUM\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\Miguel Neiva\Desktop\Uni\Li4\MercadUM\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll
-C:\Users\rital\Documents\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
-C:\Users\rital\Documents\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\Documents\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\Documents\li4\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll
-C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
-C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
-C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\testhost.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\testhost.exe
+C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.deps.json
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.runtimeconfig.json
+C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.dll
+C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\DataAccessLibrary.pdb
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\Dapper.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -146,5 +89,14 @@ C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\runtimes\win-
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\rital\source\repos\li4\DataAccessLibrary\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.AssemblyReference.cache
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfoInputs.cache
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.AssemblyInfo.cs
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CoreCompileInputs.cache
 C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.csproj.CopyComplete
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.dll
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\refint\DataAccessLibrary.dll
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.pdb
 C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\DataAccessLibrary.genruntimeconfig.cache
+C:\Users\rital\source\repos\li4\DataAccessLibrary\obj\Debug\net6.0\ref\DataAccessLibrary.dll

@@ -1,0 +1,21 @@
+﻿@page "/Login"
+
+@using Microsoft.Extensions.Logging
+@inject ILogger<Login> Logger
+
+<EditForm Model="@user" OnSubmit="@HandleSubmit">
+    <InputText id="name" @bind-Value="user.Nome" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+    private UtilizadorModel user = new();
+
+    private void HandleSubmit()
+    {
+        Logger.LogInformation("HandleSubmit called");
+
+        // Process the form
+    }
+}

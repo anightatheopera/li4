@@ -1,6 +1,10 @@
-﻿@page "/identity/account/register2"
+﻿@page "/Registo"
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
 
-<h3>Register</h3>
+@inject IUtilizadoresData _db
+
+<h3>Registo</h3>
 
 <head>
     <meta charset="UTF-8">
@@ -42,40 +46,35 @@
 
         <form id="registerForm" method="post" action="/Identity/Account/Register">
         <h1 class="word7">Nome</h1>
-            <input class="div3" autocomplete="username" aria-required="true" type="Nome" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_UserName" name="Input.UserName" value="" />
+            @Nome
+            <input type="text" @bind="@Nome" @oninput="@((e) => { Nome=(string)e.Value;})" />
             
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
         <h1 class="word7">Email</h1>
-            <input class="div3" autocomplete="username" aria-required="true" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+            <input type="text" @bind="@Email" @oninput="@((e) => { Email=(string)e.Value;})" />
            
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
         <h1 class="word7">Password</h1>
-            <input class="div3" autocomplete="new-password" aria-required="true" type="password" data-val="true" data-val-length="The Password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Input_Password" maxlength="100" name="Input.Password" />
+           <input type="text" @bind="@Password" @oninput="@((e) => { Password=(string)e.Value;})" />
        
-            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
-        <h1 class="word7">Confirma a Password</h1>
-            <input class="div3" autocomplete="new-password" aria-required="true" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="Input_ConfirmPassword" name="Input.ConfirmPassword" />
-           
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.ConfirmPassword" data-valmsg-replace="true"></span>
         <h1 class="word7">Data de nascimento</h1>
-            <input class="div3" autocomplete="Data de Nascimento" aria-required="true" type="datetime" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_DataNascimento" name="Input.DataNascimento" value="" />
+            <input type="date" @bind="@DataNascimento" @oninput="@((e) => { DataNascimento=(DateTime)e.Value;})" />
           
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
         <h1 class="word7">Morada</h1>
-            <input class="div3" autocomplete="Morada" aria-required="true" type="text" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value="" />
+            <input type="text" @bind="@Morada" @oninput="@((e) => { Morada=(string)e.Value;})" />
            
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
         <h1 class="word7">Telemovel</h1>
-            <input class="div3" autocomplete="username" aria-required="true" type="number" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Nr_Telemovel" name="Input.Nr_Telemovel" value="" />
+            <input type="text" @bind="@Nr_Telemovel" @oninput="@((e) => { Nr_Telemovel=(string)e.Value;})" />
          
             <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
-        <h1 class="word7">Metodo de Pagamento</h1>
-            <input class="div3" autocomplete="username" aria-required="true" type="text" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Pagamento" name="Input.Pagamento" value="" />
-           
-            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        <h1 class="word7">Método de Pagamento</h1>
+            <input type="text" @bind="@Pagamento" @oninput="@((e) => { Pagamento=(string)e.Value;})" />
 
 
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registo</button>
             <input name="__RequestVerificationToken" type="hidden" value="CfDJ8OmnHBVLshFFieVdr8kc7AX2iOJbiQCTMkkMq3xwfFYfhMyLfluG1pQmHinKRAseA3fBQcfE8-wyMm8G88uwo9dgS3AafA1Aq8xl0e9NeXfnWWITHEuUdxSJA1HSy7TxlUqrOK9Wd_aJSbG-BcJYJAc" />
         </form>
 
@@ -117,3 +116,28 @@
     </div>
 
 </body>
+
+@code{
+    
+    private UtilizadorModel Registar(){
+        var utilizador = new UtilizadorModel();
+        utilizador.Nome = Nome;
+        utilizador.Email = Email;
+        utilizador.Password = Password;
+        utilizador.DataNascimento = DataNascimento;
+        utilizador.Morada = Morada;
+        utilizador.Nr_Telemovel = Nr_Telemovel;
+        utilizador.Pagamento = Pagamento;
+        _db.InsertUtilizador(utilizador);
+        return utilizador;
+    }
+
+    private string Nome { get; set; }
+    private string Email { get ; set; }
+    private string Password { get ; set; }
+    private string DataNascimento { get ; set; }
+    private string Morada { get ; set; }
+    private string Nr_Telemovel { get ; set; }
+    private string Pagamento { get ; set; }
+    
+}

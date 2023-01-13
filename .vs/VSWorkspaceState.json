@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataAccessLibrary",
+    "\\MercadUM",
+    "\\MercadUM\\Model",
+    "\\MercadUM\\Pages"
   ],
-  "SelectedNode": "\\MercadUM.sln",
+  "SelectedNode": "\\MercadUM\\Pages\\Barracas.razor",
   "PreviewInSolutionExplorer": false
 }

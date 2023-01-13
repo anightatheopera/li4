@@ -15,7 +15,8 @@ builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IUtilizadoresData, UtilizadoresData>();
 builder.Services.AddTransient<IFeirasData, FeirasData>();
 builder.Services.AddTransient<IBarracasData, BarracasData>();
-builder.Services.AddTransient<IProdutosData, ProdutosData>();builder.Services.AddSyncfusionBlazor();
+builder.Services.AddTransient<IProdutosData, ProdutosData>();
+builder.Services.AddSyncfusionBlazor();
 
 
 var app = builder.Build();
@@ -66,15 +67,6 @@ namespace MercadUM
             con.Open();
 
             SqlDataReader rdr = cmd.ExecuteReader();
-
-            if (rdr.HasRows)
-            {
-                while (rdr.Read())
-                {
-                    Console.WriteLine("{0}    {1}    {2}     {3}    {4}"
-                        , rdr["nome"], rdr["email"], rdr["data_nasc"], rdr["morada"], rdr["pagamento"]);
-                }
-            }
             con.Close();
         }
     }

@@ -17,8 +17,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\Component.razor" />
-    <Content Remove="Pages\Component1.razor" />
-    <Content Remove="Pages\Login.razor" />
     <Content Remove="Pages\produtos.razor" />
     <Content Remove="Pages\UtilizadorModeles.razor" />
     <Content Remove="wwwroot\css\input.css" />

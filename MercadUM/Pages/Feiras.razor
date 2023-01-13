@@ -41,8 +41,9 @@ else
                     <td>@feira.Data_inicio</td>
                     <td>@feira.Data_fim</td>
                     <td>@feira.N_Barracas</td>
-                    <td>@GetOrganizador(@feira.Id_Organizador).Nome</td>
-                    
+                    <td>@if(@GetOrganizador(feira.Id_Organizador) != null) {@GetOrganizador(feira.Id_Organizador).Nome}
+                        else {<em>Organizador não encontrado</em>}
+                    </td>
                 </tr>
             }
         </tbody>
@@ -51,8 +52,8 @@ else
 
 
 @code {
-    private List<FeiraModel> feiras;
-    private List<UtilizadorModel> organizadores;
+    private List<FeiraModel>? feiras;
+    private List<UtilizadorModel>? organizadores;
 
     protected override async Task OnInitializedAsync()
     {
@@ -60,7 +61,7 @@ else
         organizadores = await _dbu.GetUtilizadores();
     }
 
-    public UtilizadorModel GetOrganizador(string id)
+    public UtilizadorModel? GetOrganizador(string id)
     {
         foreach (var organizador in organizadores)
         {
@@ -76,12 +77,8 @@ else
     }
 
     void Navigate(FeiraModel f)
-    {
-     
-        
-            UriHelper.NavigateTo(UrlFeira(f));
-        
-        
+    {   
+        UriHelper.NavigateTo(UrlFeira(f)); 
     }
 
     string UrlFeira(FeiraModel f)

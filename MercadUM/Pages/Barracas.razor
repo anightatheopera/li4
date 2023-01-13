@@ -1,13 +1,10 @@
-﻿@page "/{UrlFeira}/Barracas/"
+﻿@*@page "/{UrlFeira}/Barracas/"*@
 
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
 @using MercadUM.Data;
 @using Microsoft.AspNetCore.Http.Extensions
 @using Microsoft.AspNetCore.Identity;
-
-
-
 
 @inject IUtilizadoresData _dbu
 @inject IBarracasData _dbb
@@ -40,7 +37,12 @@ else
                         <button @onclick="() => Navigate(barraca)"> @barraca.Nome </button>
                     </td>
                     <td>@barraca.Descricao </td>
-                    <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
+                    <td>
+                        @if (@barraca.Id_Vendedor != null){
+                            @GetVendedor(@barraca.Id_Vendedor)
+                        }
+                        else {<em> não encontrada</em>}
+                    </td>
                     <td>@UrlFeira </td>
                     <td>@barraca.Id_Barraca</td>
                 </tr>
@@ -53,20 +55,19 @@ else
 
 @code {
 
-    private List<BarracaModel> barracas;
-    private List<UtilizadorModel> utilizadores;
-    private FeiraModel feira;
+    private List<BarracaModel>? barracas;
+    private List<UtilizadorModel>? utilizadores;
+    private FeiraModel? feira;
 
 
     [Parameter]
     public string UrlFeira { get; set; }
 
 
-    public FeiraModel GetFeira (List<FeiraModel> feiras, string NomeFeira) {
+    public FeiraModel? GetFeira (List<FeiraModel> feiras, string idFeira) {
         foreach (var f in feiras)
         {
-            System.Diagnostics.Debug.WriteLine("nome da feira " + NomeFeira + "-------------------" + f.Nome);
-            if (f.Nome == NomeFeira)
+            if (f.Id_Feiras == idFeira)
             {
                 return f;
             }
@@ -84,7 +85,7 @@ else
 
     }
 
-    public UtilizadorModel GetVendedor(string id)
+    public UtilizadorModel? GetVendedor(string id)
     {
         foreach (var vendedor in utilizadores)
         {
@@ -99,12 +100,12 @@ else
         return null;
     }
 
-    public List<BarracaModel> GetBarracas()
+    public List<BarracaModel>? GetBarracas()
     {
         List<BarracaModel> ret = new List<BarracaModel>();
         foreach (var b in barracas)
         {
-            if (b.Id_Feira == feira.Id_Feiras)
+            if (feira != null && b.Id_Feira == feira.Id_Feiras)
             {
                 ret.Add(b);
             }
@@ -115,11 +116,7 @@ else
 
     void Navigate(BarracaModel b)
     {
-
-
         UriHelper.NavigateTo(UrlBarraca(b));
-
-
     }
 
     string UrlBarraca(BarracaModel b)
