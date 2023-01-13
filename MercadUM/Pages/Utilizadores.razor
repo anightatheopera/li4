@@ -1,0 +1,72 @@
+﻿@page "/Utilizadores"
+
+@using DataAccessLibrary
+@using DataAccessLibrary.Model
+@using MercadUM.Model;
+
+
+@inject IUtilizadoresData _db
+
+<h3>Utilizadores</h3>
+@if (utilizadores is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Data de Nascimento</th>
+                <th>Telemóvel</th>
+                <th>Morada</th>
+                <th>Tipo de Conta</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var utilizador in utilizadores)
+            {
+                <tr>
+                    <td>@utilizador.Nome</td>
+                    <td>@utilizador.Email</td>
+                    <td>@utilizador.DataNascimento</td>
+                    <td>@utilizador.Telemovel</td>
+                    <td>@utilizador.Morada</td>
+                    <td>@utilizador.Tipo_de_conta</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<UtilizadorModel> utilizadores;
+    private DisplayUtilizadorModel newUser = new DisplayUtilizadorModel();
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        utilizadores = await _db.GetUtilizadores();
+    }
+
+    private async Task InsertUtilizador()
+    {
+        UtilizadorModel utilizador = new UtilizadorModel
+            {
+                Nome = newUser.Nome,
+                Email = newUser.Email,
+                DataNascimento = newUser.DataNascimento,
+                Telemovel = newUser.Nr_Telemovel,
+                Morada = newUser.Morada,
+                Tipo_de_conta = newUser.TipoDeConta
+            };
+        await _db.InsertUtilizador(utilizador);
+        utilizadores.Add(utilizador);
+    }
+
+    
+}

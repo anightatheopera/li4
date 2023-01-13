@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\rital\Documents</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Default">
+      <Value>Data Source=mercadum.database.windows.net%3bInitial Catalog=MercadUM%3bUser ID=mercadum%3bPassword=Grupo#8UM%3bConnect Timeout=60%3bEncrypt=True%3bTrustServerCertificate=False%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <File Include="wwwroot/css/bootstrap/bootstrap.min.css">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap/bootstrap.min.css.map">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/input.css">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/FONT-LICENSE">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/fonts/open-iconic.eot">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/fonts/open-iconic.otf">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/fonts/open-iconic.svg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/fonts/open-iconic.ttf">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/font/fonts/open-iconic.woff">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/ICON-LICENSE">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/open-iconic/README.md">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/produtos/cinto.jpg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/produtos/computer.jpg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/produtos/luvas.jpg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/produtos/sapatos.jpg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+    <File Include="wwwroot/images/produtos/telemovel.jpg">
+      <publishTime>01/13/2023 16:21:27</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

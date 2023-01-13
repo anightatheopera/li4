@@ -1,9 +1,4 @@
 ﻿ @page "/"
-
-@using MercadUM.Data
-@using DataAccessLibrary.Data
-
-@inject ApplicationDbContext _dbu
  
 <PageTitle>Index</PageTitle>
 
@@ -13,22 +8,4 @@ Welcome to your new app.
 
 
 
-@code {
-    private UtilizadorModel utilizador = new UtilizadorModel();
-
-    private async void HandleValidSubmit()
-    {
-        try
-        {
-            _dbu.Utilizadores.Add(utilizador);
-            await _dbu.SaveChangesAsync();
-        }
-        catch
-        {
-            base.StateHasChanged();
-        }
-        utilizador = new UtilizadorModel();
-        base.StateHasChanged();
-    }
-}
 

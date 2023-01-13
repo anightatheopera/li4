@@ -1,7 +1,5 @@
 ﻿@page "/{UrlFeira}/Barracas/"
 
-
-@using DataAccessLibrary.Data
 @using DataAccessLibrary
 @using DataAccessLibrary.Model
 @using MercadUM.Data;
@@ -11,7 +9,7 @@
 
 
 
-@inject UtilizadoresData _dbu
+@inject IUtilizadoresData _dbu
 @inject IBarracasData _dbb
 @inject IFeirasData _dbf
 @inject NavigationManager UriHelper
