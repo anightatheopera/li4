@@ -1,14 +1,18 @@
 ﻿@page "/{UrlProduto}/"
 
-@using DataAccessLibrary
-@using DataAccessLibrary.Model
+
+@using MercadUM.Areas.Barracas.Pages.Manage;
+@using MercadUM.Areas.Feiras.Pages.Manage;
+@using MercadUM.Areas.Identity.Pages.Account;
+@using MercadUM.Areas.Produtos.Pages.Manage;
+@using MercadUM.Model;
 @using Microsoft.AspNetCore.Http.Extensions;
 
 
-@inject IUtilizadoresData _dbu
-@inject IBarracasData _dbb
-@inject IFeirasData _dbf
-@inject IProdutosData _dbp
+@inject IRegisterModel _dbu
+@inject IAdicionarBarracaModel _dbb
+@inject IAdicionarFeiraModel _dbf
+@inject IAdicionarProdutoModel _dbp
 @inject NavigationManager UriHelper
 @inject HttpClient Http
 @inject IJSRuntime JS
@@ -52,8 +56,8 @@ else
 
 @code {
 
-    private List<ProdutoModel> produtos;
-    private ProdutoModel produto;
+    private List<ApplicationProduto> produtos;
+    private ApplicationProduto produto;
 
     [Parameter]
     public string UrlProduto { get; set; }
@@ -64,7 +68,7 @@ else
         produto = GetProduto(produtos, UrlProduto);
     }
 
-    public ProdutoModel GetProduto(List<ProdutoModel> produtos, string nome)
+    public ApplicationProduto? GetProduto(List<ApplicationProduto> produtos, string nome)
     {
 
         foreach (var b in produtos)

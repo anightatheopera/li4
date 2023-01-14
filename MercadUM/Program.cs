@@ -1,21 +1,16 @@
 using MercadUM.Areas.Identity;
 using MercadUM.Data;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
-using System.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccessLibrary;
+using MercadUM.SqlDataAccess;
 using Syncfusion.Blazor;
 using MercadUM.Model;
+using MercadUM.Areas.Feiras.Pages.Manage;
+using Microsoft.Data.SqlClient;
+using MercadUM.Areas.Identity.Pages.Account;
+using MercadUM.Areas.Barracas.Pages.Manage;
+using MercadUM.Areas.Produtos.Pages.Manage;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -32,17 +27,16 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => {
 })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
-    .AddDefaultTokenProviders(); ;
+    .AddDefaultTokenProviders(); 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
-builder.Services.AddTransient<IUtilizadoresData, UtilizadoresData>();
-builder.Services.AddTransient<IFeirasData, FeirasData>();
-builder.Services.AddTransient<IBarracasData, BarracasData>();
-builder.Services.AddTransient<IProdutosData, ProdutosData>();
+builder.Services.AddTransient<IRegisterModel, RegisterModel>();
+builder.Services.AddTransient<IAdicionarBarracaModel,AdicionarBarracaModel>();
+builder.Services.AddTransient<IAdicionarFeiraModel,AdicionarFeiraModel>();
+builder.Services.AddTransient<IAdicionarProdutoModel,AdicionarProdutoModel>();
 builder.Services.AddSyncfusionBlazor();
 
 
@@ -75,7 +69,8 @@ app.MapFallbackToPage("/_Host");
 
 app.Run();
 
-namespace MercadUM{
+namespace MercadUM
+{
     class Program { 
     static void Main(string[] args)
         {
@@ -83,24 +78,8 @@ namespace MercadUM{
 
             SqlConnection con = new SqlConnection(cs);
 
-            string query = "select * from [dbo].[utilizadores]";
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = query;
-
             con.Open();
-
-            SqlDataReader rdr =  cmd.ExecuteReader();
-
-            if(rdr.HasRows)
-            {
-                while(rdr.Read())
-                {
-                    Console.WriteLine("{0}    {1}    {2}     {3}    {4}"
-                        ,rdr["nome"],rdr["email"],rdr["data_nasc"],rdr["morada"],rdr["pagamento"]);
-                }
-            }
+            Console.WriteLine("Conectado");
             con.Close();
         }
     }

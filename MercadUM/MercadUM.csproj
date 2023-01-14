@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Barracas\Pages\AdicionarBarraca.cshtml.cs" />
     <Compile Remove="Data\ApplicationUser.cs" />
   </ItemGroup>
 
@@ -15,8 +16,6 @@
     <Content Remove="Pages\Component.razor" />
     <Content Remove="Pages\Component1.razor" />
     <Content Remove="Pages\Login.razor" />
-    <Content Remove="Pages\produtos.razor" />
-    <Content Remove="Pages\Utilizadores.razor" />
     <Content Remove="wwwroot\css\input.css" />
   </ItemGroup>
 
@@ -25,13 +24,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Areas\Barracas\Pages\Manage\AdicionarBarraca.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\input.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.13" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
       <PrivateAssets>all</PrivateAssets>
@@ -39,10 +45,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
     <PackageReference Include="Syncfusion.Blazor" Version="20.3.0.61" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLibrary\DataAccessLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

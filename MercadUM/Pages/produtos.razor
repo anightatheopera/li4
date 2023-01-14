@@ -1,89 +1,138 @@
-﻿@page "/Feiras"
-
-@using DataAccessLibrary
-@using DataAccessLibrary.Model
+﻿@page "/{UrlBarracas}/Produtos/"
 
 
-@inject IFeirasData _dbf
-@inject IUtilizadoresData _dbu
+@using MercadUM.Areas.Identity.Pages.Account;
+@using MercadUM.Areas.Barracas.Pages.Manage;
+@using MercadUM.Areas.Feiras.Pages.Manage;
+@using MercadUM.Areas.Produtos.Pages.Manage;
+@using MercadUM.Model;
+@using Microsoft.AspNetCore.Http.Extensions;
+
+
+
+@inject IRegisterModel _dbu
+@inject IAdicionarProdutoModel _dbp
+@inject IAdicionarBarracaModel _dbb
+@inject IAdicionarFeiraModel _dbf
 @inject NavigationManager UriHelper
 
-
-<h3>Feiras</h3>
-@if (feiras is null)
+<h3>Produtos</h3>
+@if (produtos is null)
 {
-    <p><em>A carregar...</em></p>
+        <p><em>A carregar...</em></p>
 }
 else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Data de início</th>
-                <th>Data de fim</th>
-                <th>Número de barracas</th>
-                <th>Organizador da Feira</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var feira in feiras)
-            {
+{      
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        <button @onclick="() => Navigate(feira)"> @feira.Nome </button>
-                    </td>
-                    <td>@feira.Descricao</td>
-                    <td>@feira.Data_inicio</td>
-                    <td>@feira.Data_fim</td>
-                    <td>@feira.N_Barracas</td>
-                    <td>@GetOrganizador(@feira.Id_Organizador).Nome</td>
-
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Stock</th>
                 </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var produto in GetProdutos())
+            {
+
+                            <tr>
+
+                    <td>
+                        <button @onclick="() => Navigate(produto)"> @produto.Nome </button>
+                    </td>
+                            <td>@produto.Descricao </td>
+                            <td>@produto.Preco</td>
+                            <td>@produto.Stock</td>
+
+                        </tr>
+
             }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 }
 
 
 @code {
-    private List<FeiraModel> feiras;
-    private List<UtilizadorModel> organizadores;
+
+    private List<ApplicationProduto> produtos;
+    private List<ApplicationUser> utilizadores;
+    private ApplicationBarraca barraca;
+
+    [Parameter]
+    public string UrlBarracas { get; set; }
+
+    public ApplicationBarraca GetBarracas(List<ApplicationBarraca> barracas, string NomeBarraca)
+    {
+
+        foreach (var b in barracas )
+        {
+            System.Diagnostics.Debug.WriteLine(b.Id_Barraca + "-------------------" + b.Nome);
+            if (b.Nome == NomeBarraca)
+            {
+
+                return b;
+            }
+        }
+        return null;
+    }
+
+
 
     protected override async Task OnInitializedAsync()
     {
-        feiras = await _dbf.GetFeiras();
-        organizadores = await _dbu.GetUtilizadores();
+        barraca = GetBarracas(await _dbb.GetBarracas(), UrlBarracas);
+        produtos = await _dbp.GetProdutos();
+
     }
 
-    public UtilizadorModel GetOrganizador(string id)
+    public ApplicationUser GetVendedor(string id)
     {
-        foreach (var organizador in organizadores)
+        foreach (var vendedor in utilizadores)
         {
-            if (organizador.isOrganizador(organizador))
+            if (vendedor.TipoDeConta == "2")
             {
-                if (organizador.Id_Utilizador == id)
+                if (vendedor.Id_Utilizador == id)
                 {
-                    return organizador;
+                    return vendedor;
                 }
             }
         }
         return null;
     }
 
-    void Navigate(FeiraModel f)
+    
+    public List<ApplicationProduto> GetProdutos()
+    {
+        List<ApplicationProduto> ret = new List<ApplicationProduto>();
+        foreach (var p in produtos)
+        {
+            if (p.Id_Barraca == barraca.Id_Feira)
+            {
+                ret.Add(p);
+            }
+        }
+        return ret;
+
+    }
+    
+    void Navigate(ApplicationProduto p)
     {
 
-
-        UriHelper.NavigateTo(Url(f));
+        UriHelper.NavigateTo(UrlProduto(p));
 
 
     }
 
-    string Url(FeiraModel f)
+    string UrlProduto(ApplicationProduto p)
     {
-        return f.Nome + "/Barracas";
+        return p.Nome;
     }
+
+
+
+
+
 
 }

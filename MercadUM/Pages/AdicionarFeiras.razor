@@ -1,0 +1,89 @@
+﻿@page "/AdicionarFeira"
+@using MercadUM.Areas.Feiras.Pages.Manage;
+@using MercadUM.Model;
+@using Microsoft.AspNetCore.Mvc;
+
+
+
+@inject IAdicionarFeiraModel _dbf
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ILogger<ApplicationFeira> Logger
+@inject IJSRuntime JS
+
+<PageTitle>Adicionar Feiras</PageTitle>
+
+<EditForm Model="@feiraNova" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+<div class="row">
+    <div class="col-md-4">
+
+            <h2>Crie uma nova feira</h2>
+            <hr />
+            <br />
+                <label> Nome da Feira</label>
+            <div class="form-group">
+                <InputText id="Nome" @bind-Value="feiraNova.Nome"/>
+            </div>
+            <br />
+                <label> Descrição </label>
+            <div class="form-group">
+                <InputText id="Descricao" @bind-Value="feiraNova.Descricao" />
+            </div>
+            <br />
+                <label> Data de início</label>
+            <div class="form-group">
+                <InputText id="Data_inicio" @bind-Value="feiraNova.Data_inicio" />
+            </div>
+            <br />
+                <label> Data de fim</label>
+            <div class="form-group">
+                <InputText id="Data_fim" @bind-Value="feiraNova.Data_fim" />
+            </div>
+            <br />
+                <label> Número máximo de barracas</label>
+            <div class="form-group">
+                <InputNumber id="N_barracas" @bind-Value="feiraNova.N_Barracas" min="0" max="999" />
+            </div>
+            <br />
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Criar feira</button>
+
+    </div>
+</div>
+</EditForm>
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private ApplicationFeira feiraNova = new ApplicationFeira();
+
+    private async void HandleValidSubmit()
+    {
+        await JS.InvokeVoidAsync("alert", "Product created");
+
+        Logger.LogInformation("HandleSubmit called");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        Console.WriteLine(user.ToString());
+        if (user.Identity.IsAuthenticated)
+        {
+            feiraNova.Id_Organizador = user.Claims.FirstOrDefault(c => c.Type.EndsWith("nameidentifier")).Value;
+            await _dbf.InsertFeira(feiraNova);
+            await Task.CompletedTask;
+        }
+        
+
+       
+
+    }
+
+    
+
+   
+
+
+
+}

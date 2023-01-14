@@ -1,0 +1,75 @@
+﻿@page "/AdicionarBarraca"
+@using MercadUM.Areas.Feiras.Pages.Manage;
+@using MercadUM.Areas.Barracas.Pages.Manage;
+@using MercadUM.Model;
+@using Microsoft.AspNetCore.Mvc;
+
+
+
+@inject IAdicionarBarracaModel _dbb
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ILogger<ApplicationFeira> Logger
+@inject IJSRuntime JS
+
+<PageTitle>Adicionar Barracas</PageTitle>
+
+<EditForm Model="@barracaNova" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-md-4">
+
+            <h2>Crie uma nova barraca</h2>
+            <hr />
+            <br />
+            <label> Nome da Barraca</label>
+            <div class="form-group">
+                <InputText id="Nome" @bind-Value="barracaNova.Nome" />
+            </div>
+            <br />
+            <label> Url do Logótipo </label>
+            <div class="form-group">
+                <InputText id="Logótipo" @bind-Value="barracaNova.Url_logotipo" />
+            </div>
+            <br />
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Criar barraca</button>
+
+        </div>
+    </div>
+</EditForm>
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private ApplicationBarraca barracaNova = new ApplicationBarraca();
+
+    private async void HandleValidSubmit()
+    {
+        await JS.InvokeVoidAsync("alert", "Product created");
+
+        Logger.LogInformation("HandleSubmit called");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        Console.WriteLine(user.ToString());
+        if (user.Identity.IsAuthenticated)
+        {
+            barracaNova.Id_Vendedor = user.Claims.FirstOrDefault(c => c.Type.EndsWith("nameidentifier")).Value;
+            await _dbb.InsertBarraca(barracaNova);
+            await Task.CompletedTask;
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+}

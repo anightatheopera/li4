@@ -1,15 +1,16 @@
 ﻿@page "/{UrlFeira}/Barracas/"
 
 
-@using DataAccessLibrary
-@using DataAccessLibrary.Model
+@using MercadUM.Model;
 @using Microsoft.AspNetCore.Http.Extensions;
+@using MercadUM.Areas.Identity.Pages.Account;
+@using MercadUM.Areas.Barracas.Pages.Manage;
+@using MercadUM.Areas.Feiras.Pages.Manage;
 
 
-
-@inject IUtilizadoresData _dbu
-@inject IBarracasData _dbb
-@inject IFeirasData _dbf
+@inject IRegisterModel _dbu
+@inject IAdicionarBarracaModel _dbb
+@inject IAdicionarFeiraModel _dbf
 @inject NavigationManager UriHelper
 
 <h3>Barracas</h3>
@@ -24,7 +25,6 @@ else
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
-                <th>Vendedor</th>
                 <th>Feira</th>
                 <th>ID</th>
             </tr>
@@ -38,16 +38,7 @@ else
                         <button @onclick="() => Navigate(barraca)"> @barraca.Nome </button>
                     </td>
                     <td>@barraca.Descricao </td>
-                    <td>@if (@GetVendedor(barraca.Id_Vendedor) != null)
-                        {
-                            @GetVendedor(barraca.Id_Vendedor).Nome
-                        }
-                        else
-                        {
-                            <p> Vendedor não encontrado </p>
-                        }
-                    </td>
-                            <td>@UrlFeira </td>
+                    <td>@UrlFeira </td>
                     <td>@barraca.Id_Barraca</td>
                 </tr>
                 
@@ -59,19 +50,18 @@ else
 
 @code {
 
-    private List<BarracaModel> barracas;
-    private List<UtilizadorModel> utilizadores;
-    private FeiraModel feira;
+    private List<ApplicationBarraca> barracas;
+    private List<ApplicationUser> utilizadores;
+    private ApplicationFeira feira;
 
 
     [Parameter]
     public string UrlFeira { get; set; }
 
 
-    public FeiraModel? GetFeira (List<FeiraModel> feiras, string NomeFeira) {
+    public ApplicationFeira? GetFeira (List<ApplicationFeira> feiras, string NomeFeira) {
         foreach (var f in feiras)
         {
-            System.Diagnostics.Debug.WriteLine("nome da feira " + NomeFeira + "-------------------" + f.Nome);
             if (f.Nome == NomeFeira)
             {
                 return f;
@@ -86,28 +76,24 @@ else
     {
         feira = GetFeira(await _dbf.GetFeiras(), UrlFeira);
         barracas = await _dbb.GetBarracas();
-        utilizadores = await _dbu.GetUtilizadores();
 
     }
 
-    public UtilizadorModel? GetVendedor(string id)
+    public ApplicationUser? GetVendedor(string id)
     {
         foreach (var vendedor in utilizadores)
         {
-            if (vendedor.isVendedor(vendedor))
+            if (vendedor.Id == id && vendedor.TipoDeConta == "2")
             {
-                if (vendedor.Id_Utilizador == id)
-                {
-                    return vendedor;
-                }
+                return vendedor;
             }
         }
         return null;
     }
 
-    public List<BarracaModel> GetBarracas()
+    public List<ApplicationBarraca> GetBarracas()
     {
-        List<BarracaModel> ret = new List<BarracaModel>();
+        List<ApplicationBarraca> ret = new List<ApplicationBarraca>();
         foreach (var b in barracas)
         {
             if (b.Id_Feira == feira.Id_Feiras)
@@ -119,7 +105,7 @@ else
   
     }
 
-    void Navigate(BarracaModel b)
+    void Navigate(ApplicationBarraca b)
     {
 
 
@@ -128,7 +114,7 @@ else
 
     }
 
-    string UrlBarraca(BarracaModel b)
+    string UrlBarraca(ApplicationBarraca b)
     {
         return  b.Nome + "/Produtos/";
     }

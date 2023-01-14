@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Syncfusion.Blazor.Schedule;
+using System;
+
 
 namespace MercadUM.Data
 {
@@ -9,6 +12,10 @@ namespace MercadUM.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
+        {
+        }
+
+        public ApplicationDbContext() : base()
         {
         }
 
@@ -44,6 +51,7 @@ namespace MercadUM.Data
             {
                 entity.ToTable("UserTokens");
             });
+            
         }
 
     }

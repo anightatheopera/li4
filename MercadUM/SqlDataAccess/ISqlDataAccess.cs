@@ -1,6 +1,6 @@
-﻿namespace DataAccessLibrary
+﻿namespace MercadUM.SqlDataAccess
 {
-   public interface ISqlDataAccess
+    public interface ISqlDataAccess
     {
         string ConnectionStringName { get; set; }
 

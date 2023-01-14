@@ -1,11 +1,12 @@
 ﻿@page "/Feiras"
 
-@using DataAccessLibrary
-@using DataAccessLibrary.Model
+@using MercadUM.Areas.Feiras.Pages.Manage;
+@using MercadUM.Areas.Identity.Pages.Account;
+@using MercadUM.Model;
 
 
-@inject IFeirasData _dbf
-@inject IUtilizadoresData _dbu
+@inject IAdicionarFeiraModel _dbf
+@inject IRegisterModel _dbu
 @inject NavigationManager UriHelper
 
 
@@ -46,40 +47,34 @@ else
 
 
 @code {
-    private List<FeiraModel> feiras;
-    private List<UtilizadorModel> organizadores;
+    private List<ApplicationFeira> feiras;
+    private List<ApplicationUser> utilizadores;
 
     protected override async Task OnInitializedAsync()
     {
         feiras = await _dbf.GetFeiras();
-        organizadores = await _dbu.GetUtilizadores();
+
     }
 
-    public UtilizadorModel? GetOrganizador(string id)
+    public ApplicationUser? GetOrganizador(string id)
     {
-        foreach (var organizador in organizadores)
+        foreach (var organizador in utilizadores)
         {
-            if (organizador.isOrganizador(organizador))
+            if (organizador.TipoDeConta == "1" && organizador.Id == id)
             {
-                if (organizador.Id_Utilizador == id)
-                {
-                    return organizador;
-                }
+                return organizador;
             }
         }
         return null;
     }
 
-    void Navigate(FeiraModel f)
+    void Navigate(ApplicationFeira f)
     {
-     
-        
+
             UriHelper.NavigateTo(UrlFeira(f));
-        
-        
     }
 
-    string UrlFeira(FeiraModel f)
+    string UrlFeira(ApplicationFeira f)
     {
         return f.Nome + "/Barracas/";
     }

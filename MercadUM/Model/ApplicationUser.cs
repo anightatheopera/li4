@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Drawing;
 
 namespace MercadUM.Model
 {
     public class ApplicationUser : IdentityUser
     {
+        public string Id_Utilizador { get; set; }
         public string Nome { get; set; }
         public string Morada { get; set; }
         public string Pagamento { get; set; }
