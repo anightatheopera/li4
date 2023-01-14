@@ -38,8 +38,16 @@ else
                         <button @onclick="() => Navigate(barraca)"> @barraca.Nome </button>
                     </td>
                     <td>@barraca.Descricao </td>
-                    <td>@GetVendedor(barraca.Id_Vendedor).Nome</td>
-                    <td>@UrlFeira </td>
+                    <td>@if (@GetVendedor(barraca.Id_Vendedor) != null)
+                        {
+                            @GetVendedor(barraca.Id_Vendedor).Nome
+                        }
+                        else
+                        {
+                            <p> Vendedor não encontrado </p>
+                        }
+                    </td>
+                            <td>@UrlFeira </td>
                     <td>@barraca.Id_Barraca</td>
                 </tr>
                 
@@ -60,7 +68,7 @@ else
     public string UrlFeira { get; set; }
 
 
-    public FeiraModel GetFeira (List<FeiraModel> feiras, string NomeFeira) {
+    public FeiraModel? GetFeira (List<FeiraModel> feiras, string NomeFeira) {
         foreach (var f in feiras)
         {
             System.Diagnostics.Debug.WriteLine("nome da feira " + NomeFeira + "-------------------" + f.Nome);
@@ -82,7 +90,7 @@ else
 
     }
 
-    public UtilizadorModel GetVendedor(string id)
+    public UtilizadorModel? GetVendedor(string id)
     {
         foreach (var vendedor in utilizadores)
         {
