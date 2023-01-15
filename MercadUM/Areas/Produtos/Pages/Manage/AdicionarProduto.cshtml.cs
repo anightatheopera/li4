@@ -46,15 +46,20 @@ namespace MercadUM.Areas.Produtos.Pages.Manage
 
         public Task<List<ApplicationProduto>> GetProdutos()
         {
-            string sql = "select * from dbo.feiras;";
+            string sql = "select * from dbo.produtos;";
             return _db.LoadData<ApplicationProduto, dynamic>(sql, new { });
         }
 
+        public Task<List<ApplicationProduto>> GetProdutosByBarraca(string Id_Barraca)
+        {
+            string sql = @"SELECT * FROM [dbo].[produtos] WHERE Id_Barraca = @Id_Barraca";
+            return _db.LoadData<ApplicationProduto, dynamic>(sql, new { Id_Barraca = Id_Barraca });
+        }
 
         public Task InsertProduto(ApplicationProduto produto)
         {
-            string sql = @"insert into dbo.produtos (Id_Produtos, Nome, Descricao, Preco, Id_Barracas)
-                           values (@Id_Produtos, @Nome, @Descricao, @Preco, @Id_Barracas);";
+            string sql = @"insert into dbo.produtos (Id_Produtos, Nome, Descricao, Preco, Id_Barraca)
+                           values (@Id_Produtos, @Nome, @Descricao, @Preco, @Id_Barraca);";
             produto.Id_Produtos = RandomId();
             return _db.SaveData(sql, produto);
         }

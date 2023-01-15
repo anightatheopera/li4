@@ -6,5 +6,6 @@ namespace MercadUM.Areas.Produtos.Pages.Manage
     {
         Task<List<ApplicationProduto>> GetProdutos();
         Task InsertProduto(ApplicationProduto produto);
+        Task<List<ApplicationProduto>> GetProdutosByBarraca(string Id_Barraca);
     }
 }

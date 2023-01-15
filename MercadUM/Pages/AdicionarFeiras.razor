@@ -12,7 +12,7 @@
 @inject IJSRuntime JS
 
 
-@if (@user_access.TipoDeConta == "1"){
+
 <PageTitle>Adicionar Feiras</PageTitle>
 
 <EditForm Model="@feiraNova" OnValidSubmit="@HandleValidSubmit">
@@ -55,11 +55,6 @@
 </div>
 </EditForm>
     
-}
-    else
-    {
-    <h1> Não tem permissões para aceder a esta página </h1>
-    }
 
 
 
@@ -84,7 +79,7 @@
             List<ApplicationUser> arg = await _dbu.GetUserByEmail(user.Identity.Name);
             user_access = arg[0];
             feiraNova.Id_Organizador = user_access.Id;
-            await JS.InvokeVoidAsync("alert", feiraNova.Id_Organizador);
+            await JS.InvokeVoidAsync("alert", "Feira criada");
             await _dbf.InsertFeira(feiraNova);
             await Task.CompletedTask;
             

@@ -15,42 +15,78 @@
 @inject IAdicionarBarracaModel _dbb
 @inject IAdicionarFeiraModel _dbf
 @inject NavigationManager UriHelper
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<style>
+    .text-break-line-2 {
+        height: 50px;
+    }
+    .text-break-line-2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        padding: 1px 0px;
+        text-align: left;
+    }
+    img {
+        max-width: 100%;
+    }
+    img {
+        vertical-align: middle;
+        border-style: none;
+    }
+    .rounded-xl {
+        border-radius: 12px !important;
+    }
+    .shadow {
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    }
+    .overflow-hidden {
+        overflow: hidden !important;
+    }
+    .border {
+        border: 1px solid #dee2e6 !important;
+    }
+</style>
 
 <h3>Produtos</h3>
 @if (produtos is null)
 {
-        <p><em>A carregar...</em></p>
+    <p><em>A carregar...</em></p>
 }
 else
-{      
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Stock</th>
-                </tr>
-            </thead>
-            <tbody>
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
 
-            @foreach (var produto in GetProdutos())
+            @foreach (var produto in produtos)
             {
 
-                            <tr>
+                <tr>
 
                     <td>
                         <button @onclick="() => Navigate(produto)"> @produto.Nome </button>
                     </td>
-                            <td>@produto.Descricao </td>
-                            <td>@produto.Preco</td>
-                            <td>@produto.Stock</td>
+                    <td>@produto.Descricao </td>
+                    <td>@produto.Preco</td>
+                    <td>@produto.Stock</td>
 
-                        </tr>
+                </tr>
 
             }
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 }
 
 
@@ -63,12 +99,12 @@ else
     [Parameter]
     public string UrlBarracas { get; set; }
 
-    public ApplicationBarraca GetBarracas(List<ApplicationBarraca> barracas, string NomeBarraca)
+    public ApplicationBarraca? GetBarracas(List<ApplicationBarraca> barracas, string NomeBarraca)
     {
 
         foreach (var b in barracas )
         {
-            System.Diagnostics.Debug.WriteLine(b.Id_Barracas + "-------------------" + b.Nome);
+            
             if (b.Nome == NomeBarraca)
             {
 
@@ -83,7 +119,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         barraca = GetBarracas(await _dbb.GetBarracas(), UrlBarracas);
-        produtos = await _dbp.GetProdutos();
+        produtos = await _dbp.GetProdutosByBarraca(barraca.Id_Barracas);
 
     }
 
@@ -130,7 +166,17 @@ else
         return p.Nome;
     }
 
+    private async Task<Stream> GetImageStreamAsync(ApplicationProduto p)
+    {
+        return await Http.GetStreamAsync(p.Imagem);
+    }
 
+    private async Task SetImageAsync(ApplicationProduto p)
+    {
+        var imageStream = await GetImageStreamAsync(p);
+        var dotnetImageStream = new DotNetStreamReference(imageStream);
+        await JS.InvokeVoidAsync("setImage", "image", dotnetImageStream);
+    }
 
 
 
