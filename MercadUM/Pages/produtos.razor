@@ -22,6 +22,7 @@
     .text-break-line-2 {
         height: 50px;
     }
+
     .text-break-line-2 {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -31,70 +32,155 @@
         padding: 1px 0px;
         text-align: left;
     }
+
     img {
         max-width: 100%;
     }
+
     img {
         vertical-align: middle;
         border-style: none;
     }
+
     .rounded-xl {
         border-radius: 12px !important;
     }
+
     .shadow {
         box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     }
+
     .overflow-hidden {
         overflow: hidden !important;
     }
+
     .border {
         border: 1px solid #dee2e6 !important;
     }
 </style>
 
-<h3>Produtos</h3>
+<style>
+    <!-- HTML ! -->
+    .button-17 {
+        align-items: center;
+        appearance: none;
+        background-color: #fff;
+        border-radius: 24px;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+        box-sizing: border-box;
+        color: #3c4043;
+        cursor: pointer;
+        display: inline-flex;
+        fill: currentcolor;
+        font-family: "Google Sans",Roboto,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        height: 48px;
+        justify-content: center;
+        letter-spacing: .25px;
+        line-height: normal;
+        max-width: 100%;
+        overflow: visible;
+        padding: 2px 24px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: auto;
+        will-change: transform,opacity;
+        z-index: 0;
+    }
+
+    .button-17:hover {
+        background: #F6F9FE;
+        color: #174ea6;
+    }
+
+    .button-17:active {
+        box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+        outline: none;
+    }
+
+    .button-17:focus {
+        outline: none;
+        border: 2px solid #4285f4;
+    }
+
+    .button-17:not(:disabled) {
+        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
+
+        .button-17:not(:disabled):hover {
+            box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+        }
+
+        .button-17:not(:disabled):focus {
+            box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+        }
+
+        .button-17:not(:disabled):active {
+            box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+        }
+
+    .button-17:disabled {
+        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
+</style>
+
 @if (produtos is null)
 {
-    <p><em>A carregar...</em></p>
+        <p><em>A carregar...</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach (var produto in produtos)
+    <div class="col-12 mb-3"><h4>Produtos</h4></div>
+           @foreach (var produto in produtos)
             {
 
-                <tr>
-
-                    <td>
-                        <button @onclick="() => Navigate(produto)"> @produto.Nome </button>
-                    </td>
-                    <td>@produto.Descricao </td>
-                    <td>@produto.Preco</td>
-                    <td>@produto.Stock</td>
-
-                </tr>
-
-            }
-        </tbody>
-    </table>
+                <div class="container">
+                    <div class="row">
+                        <div class="card-body-x">
+                            <div class="row my-2">
+                                <div class="col-sm-6 col-md-4 col-xl-3 mb-5">
+                                    <div class="item rounded-xl overflow-hidden shadow border">
+                                        <div class="px-3 pt-6">
+                                            <div> <img src="@produto.Imagem" class="img-thumbail" /> </div>
+                                            <div>
+                                                <div class="row d-flex align-items-center mb-6">
+                                                    <center>
+                                                        <button class="button-17" @onclick="() => Navigate(produto)"> @produto.Nome </button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="col-4">
+                                                <h5 class="text-right m-0">@produto.Preco€</h5>
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <center>
+                                        <button class="button-17"> <i class="text-center"></i> Adicionar ao Carrinho</button>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      
+           }
 }
 
 
 @code {
 
-    private List<ApplicationProduto> produtos;
-    private List<ApplicationUser> utilizadores;
-    private ApplicationBarraca barraca;
+    private List<ApplicationProduto> produtos = new List<ApplicationProduto>();
+    private List<ApplicationUser> utilizadores = new List<ApplicationUser>();
+    private ApplicationBarraca barraca = new ApplicationBarraca();
 
     [Parameter]
     public string UrlBarracas { get; set; }
@@ -102,7 +188,7 @@ else
     public ApplicationBarraca? GetBarracas(List<ApplicationBarraca> barracas, string NomeBarraca)
     {
 
-        foreach (var b in barracas )
+        foreach (var b in barracas)
         {
             
             if (b.Nome == NomeBarraca)
@@ -123,7 +209,7 @@ else
 
     }
 
-    public ApplicationUser GetVendedor(string id)
+    public ApplicationUser? GetVendedor(string id)
     {
         foreach (var vendedor in utilizadores)
         {
@@ -136,21 +222,6 @@ else
             }
         }
         return null;
-    }
-
-    
-    public List<ApplicationProduto> GetProdutos()
-    {
-        List<ApplicationProduto> ret = new List<ApplicationProduto>();
-        foreach (var p in produtos)
-        {
-            if (p.Id_Barraca == barraca.Id_Feira)
-            {
-                ret.Add(p);
-            }
-        }
-        return ret;
-
     }
     
     void Navigate(ApplicationProduto p)
@@ -165,20 +236,5 @@ else
     {
         return p.Nome;
     }
-
-    private async Task<Stream> GetImageStreamAsync(ApplicationProduto p)
-    {
-        return await Http.GetStreamAsync(p.Imagem);
-    }
-
-    private async Task SetImageAsync(ApplicationProduto p)
-    {
-        var imageStream = await GetImageStreamAsync(p);
-        var dotnetImageStream = new DotNetStreamReference(imageStream);
-        await JS.InvokeVoidAsync("setImage", "image", dotnetImageStream);
-    }
-
-
-
 
 }

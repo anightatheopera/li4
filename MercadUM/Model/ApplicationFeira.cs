@@ -13,5 +13,6 @@ namespace MercadUM.Model
         public string Id_Organizador { get; set; }
         public virtual ApplicationUser Organizador { get; set; }
         public virtual List<ApplicationBarraca> Barracas { get; set; }
+
     }
 }

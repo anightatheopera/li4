@@ -2,9 +2,11 @@
 @using MercadUM.Areas.Produtos.Pages.Manage;
 @using MercadUM.Model;
 @using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Components.Forms
 
 
 
+@inject IImageHandler _dbi
 @inject IAdicionarProdutoModel _dbp
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ILogger<ApplicationFeira> Logger
@@ -31,14 +33,16 @@
                 <InputText id="Descricao" @bind-Value="produtoNova.Descricao" />
             </div>
             <br />
-            <label> Url da imagem </label>
-            <div class="form-group">
-                <InputText id="Data_inicio" @bind-Value="produtoNova.Imagem" />
-            </div>
+            <label> Imagem 
+                <form @onsubmit="upload_image">
+                <InputFile OnChange="OnInputFileChange" multiple class="btn btn-primary" />
+                <button type="submit" class="btn btn-secundary">Fazer upload da imagem</button>
+                </form>
+            </label>
             <br />
             <label> Preço </label>
             <div class="form-group">
-                <InputNumber id="Data_fim" @bind-Value="produtoNova.Preco" />
+                <InputNumber id="Preco" @bind-Value="produtoNova.Preco" />
             </div>
             <br />
             <label> Stock disponível</label>
@@ -65,7 +69,7 @@
 
     private async void HandleValidSubmit()
     {
-        
+
 
         Logger.LogInformation("HandleSubmit called");
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -77,17 +81,30 @@
             await _dbp.InsertProduto(produtoNova);
             await Task.CompletedTask;
             await JS.InvokeVoidAsync("alert", "Produto criado");
+            await JS.InvokeVoidAsync("alert", produtoNova.Imagem == null);
         }
 
+    }
+    
+    IReadOnlyList<IBrowserFile> ficheirosSelecionados;
 
-
-
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        ficheirosSelecionados = e.GetMultipleFiles();
+        this.StateHasChanged();
     }
 
-
-
-
-
+    private async void upload_image()
+    {
+        if (ficheirosSelecionados == null)
+        {
+            await JS.InvokeVoidAsync("alert", "Nenhum ficheiro selecionado");
+            return;
+        }
+        produtoNova.Imagem = await _dbi.SaveImageAsync(ficheirosSelecionados[0], "product_" + produtoNova.Nome + "barraca_" + UrlNovoProduto);
+        await JS.InvokeVoidAsync("alert", produtoNova.Imagem);
+        this.StateHasChanged();
+    }
 
 
 }

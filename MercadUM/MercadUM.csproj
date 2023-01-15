@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.9" />
@@ -44,6 +45,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="Smart.Blazor" Version="14.4.39" />
     <PackageReference Include="Syncfusion.Blazor" Version="20.3.0.61" />
   </ItemGroup>
 
