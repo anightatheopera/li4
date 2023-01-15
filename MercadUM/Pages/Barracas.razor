@@ -2,12 +2,14 @@
 
 
 @using MercadUM.Model;
+@using MercadUM.SqlDataAccess;
 @using Microsoft.AspNetCore.Http.Extensions;
 @using MercadUM.Areas.Identity.Pages.Account;
 @using MercadUM.Areas.Barracas.Pages.Manage;
 @using MercadUM.Areas.Feiras.Pages.Manage;
 
-
+@inject IUserAccess _dbua
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IRegisterModel _dbu
 @inject IAdicionarBarracaModel _dbb
 @inject IAdicionarFeiraModel _dbf
@@ -26,7 +28,7 @@ else
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Feira</th>
-                <th>ID</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +41,14 @@ else
                     </td>
                     <td>@barraca.Descricao </td>
                     <td>@UrlFeira </td>
-                    <td>@barraca.Id_Barracas</td>
+                    <td>
+                        @if (@user_access.TipoDeConta == "2" && barraca.Id_Vendedor == user_access.Id)
+                        {
+                        <td>
+                            <Button Class="floating" @onclick="() => NavigateNovoProduto(barraca)"> Selecione este botão para adicionar um produto novo à barraca</Button>
+                        </td>
+                        }
+                    </td>
                 </tr>
                 
             }
@@ -49,7 +58,7 @@ else
 
 
 @code {
-
+    private ApplicationUser user_access = new ApplicationUser();
     private List<ApplicationBarraca> barracas;
     private List<ApplicationUser> utilizadores;
     private ApplicationFeira feira;
@@ -76,6 +85,14 @@ else
     {
         feira = GetFeira(await _dbf.GetFeiras(), UrlFeira);
         barracas = await _dbb.GetBarracas();
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            List<ApplicationUser> arg = await _dbua.GetUserByEmail(user.Identity.Name);
+            user_access = arg[0];
+
+        }
 
     }
 
@@ -102,7 +119,7 @@ else
             }
         }
         return ret;
-  
+
     }
 
     void Navigate(ApplicationBarraca b)
@@ -119,6 +136,14 @@ else
         return  b.Nome + "/Produtos/";
     }
 
-
+    void NavigateNovoProduto(ApplicationBarraca b)
+    {
+        UriHelper.NavigateTo(UrlNovoProduto(b) +"/AdicionarProduto/");
+    }
+    
+    string UrlNovoProduto(ApplicationBarraca b)
+    {
+        return b.Id_Barracas;
+    }
 
 }

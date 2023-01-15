@@ -60,6 +60,9 @@
 
     private ApplicationProduto produtoNova = new ApplicationProduto();
 
+    [Parameter]
+    public string UrlNovoProduto { get; set; }
+
     private async void HandleValidSubmit()
     {
         
@@ -70,6 +73,7 @@
         Console.WriteLine(user.ToString());
         if (user.Identity.IsAuthenticated)
         {
+            produtoNova.Id_Barraca = UrlNovoProduto;
             await _dbp.InsertProduto(produtoNova);
             await Task.CompletedTask;
             await JS.InvokeVoidAsync("alert", "Produto criado");

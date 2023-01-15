@@ -11,6 +11,8 @@
 @inject ILogger<ApplicationFeira> Logger
 @inject IJSRuntime JS
 
+
+@if (@user_access.TipoDeConta == "1"){
 <PageTitle>Adicionar Feiras</PageTitle>
 
 <EditForm Model="@feiraNova" OnValidSubmit="@HandleValidSubmit">
@@ -52,14 +54,22 @@
     </div>
 </div>
 </EditForm>
+    
+}
+    else
+    {
+    <h1> Não tem permissões para aceder a esta página </h1>
+    }
 
 
-@code {
+
+    @code {
 
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
 
     private ApplicationFeira feiraNova = new ApplicationFeira();
+    private ApplicationUser user_access = new ApplicationUser();
 
     private async void HandleValidSubmit()
     {
@@ -72,8 +82,8 @@
         if (user.Identity.IsAuthenticated)
         {
             List<ApplicationUser> arg = await _dbu.GetUserByEmail(user.Identity.Name);
-            ApplicationUser ret = arg[0];
-            feiraNova.Id_Organizador = ret.Id;
+            user_access = arg[0];
+            feiraNova.Id_Organizador = user_access.Id;
             await JS.InvokeVoidAsync("alert", feiraNova.Id_Organizador);
             await _dbf.InsertFeira(feiraNova);
             await Task.CompletedTask;

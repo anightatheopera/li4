@@ -3,8 +3,11 @@
 @using MercadUM.Areas.Feiras.Pages.Manage;
 @using MercadUM.Areas.Identity.Pages.Account;
 @using MercadUM.Model;
+@using MercadUM.SqlDataAccess;
 
 
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IUserAccess _dbua
 @inject IAdicionarFeiraModel _dbf
 @inject IRegisterModel _dbu
 @inject NavigationManager UriHelper
@@ -25,6 +28,8 @@ else
                 <th>Data de início</th>
                 <th>Data de fim</th>
                 <th>Número de barracas</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -32,13 +37,21 @@ else
             {
                 <tr>
                     <td>
-                        <button @onclick="() => Navigate(feira)"> @feira.Nome </button>
+                        <Button Class="raised" @onclick="() => Navigate(feira)"> @feira.Nome </Button>
                     </td>
                     <td>@feira.Descricao</td>
                     <td>@feira.Data_inicio</td>
                     <td>@feira.Data_fim</td>
                     <td>@feira.N_Barracas</td>
-                    
+                    <td>
+                        @if (@user_access.TipoDeConta == "2")
+                        {
+                            <td>
+                            <Button Class="floating" @onclick="() => NavigateNovaBarraca(feira)"> Selecione este botão para adicionar uma barraca nova à feira</Button>
+                            </td>
+                        }
+                    </td>
+                    <td> </td>
                 </tr>
             }
         </tbody>
@@ -49,10 +62,21 @@ else
 @code {
     private List<ApplicationFeira> feiras;
     private List<ApplicationUser> utilizadores;
+    private ApplicationUser user_access = new ApplicationUser();
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         feiras = await _dbf.GetFeiras();
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            List<ApplicationUser> arg = await _dbua.GetUserByEmail(user.Identity.Name);
+            user_access = arg[0];
+
+        }
 
     }
 
@@ -68,6 +92,8 @@ else
         return null;
     }
 
+
+
     void Navigate(ApplicationFeira f)
     {
 
@@ -77,6 +103,15 @@ else
     string UrlFeira(ApplicationFeira f)
     {
         return f.Nome + "/Barracas/";
+    }
+    
+    string UrlAdicionarBarraca(ApplicationFeira f){
+        return f.Id_Feiras;
+    }
+
+    void NavigateNovaBarraca(ApplicationFeira u)
+    {
+        UriHelper.NavigateTo(UrlAdicionarBarraca(u) + "/AdicionarBarraca");
     }
 
 }

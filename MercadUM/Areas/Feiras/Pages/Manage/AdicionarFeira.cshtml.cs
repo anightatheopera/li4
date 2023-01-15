@@ -57,6 +57,12 @@ namespace MercadUM.Areas.Feiras.Pages.Manage
             return _db.LoadData<ApplicationFeira, dynamic>(sql, new { });
         }
 
+        public Task<List<ApplicationFeira>> GetFeirasById(string Id_Feiras)
+        {
+            string sql = @"SELECT * FROM [dbo].[feiras] WHERE Id_Feiras = @Id_Feiras";
+            return _db.LoadData<ApplicationFeira, dynamic>(sql, new { Id_Feiras = Id_Feiras });
+        }
+
 
         public Task InsertFeira(ApplicationFeira feira)
         {

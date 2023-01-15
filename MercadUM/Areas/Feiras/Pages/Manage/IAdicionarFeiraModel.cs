@@ -6,6 +6,7 @@ namespace MercadUM.Areas.Feiras.Pages.Manage
     {
 
         Task<List<ApplicationFeira>> GetFeiras();
+        Task<List<ApplicationFeira>> GetFeirasById(string Id_Feiras);
         Task InsertFeira(ApplicationFeira feira);
     }
 }
