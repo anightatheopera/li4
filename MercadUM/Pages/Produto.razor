@@ -133,7 +133,7 @@ else
                         <div class="d-flex flex-column flex-sm-row pt-1">
                             @if (@produto.Stock > 0 && user_access.TipoDeConta == "3")
                             {
-                                <button class="button-17" @onclick="() => Navigate()">Adicionar ao carrinho</button>
+                                <button class="button-17">Adicionar ao carrinho</button>
                             }
                         </div>
                     </div>
@@ -199,10 +199,6 @@ else
         return produto.Id_Barraca;
     }
 
-    void Navigate()
-    {
-
-        UriHelper.NavigateTo(produto.Id_Produtos + "/" + user_access.Id);
-    }
+    
 
 }
