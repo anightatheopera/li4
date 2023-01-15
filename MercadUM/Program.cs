@@ -12,6 +12,7 @@ using MercadUM.Areas.Identity.Pages.Account;
 using MercadUM.Areas.Barracas.Pages.Manage;
 using MercadUM.Areas.Produtos.Pages.Manage;
 using Smart.Blazor;
+using MercadUM.Areas.Encomendas;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -39,7 +40,9 @@ builder.Services.AddTransient<IAdicionarBarracaModel,AdicionarBarracaModel>();
 builder.Services.AddTransient<IAdicionarFeiraModel,AdicionarFeiraModel>();
 builder.Services.AddTransient<IAdicionarProdutoModel,AdicionarProdutoModel>();
 builder.Services.AddTransient<IUserAccess, UserAccess>();
-builder.Services.AddTransient<IImageHandler, AdicionarProdutoModel.ImageHandler>();
+builder.Services.AddTransient<MercadUM.Areas.Produtos.Pages.Manage.IImageHandler, AdicionarProdutoModel.ImageHandler>();
+builder.Services.AddTransient<MercadUM.Areas.Barracas.Pages.Manage.IImageHandler, AdicionarBarracaModel.ImageHandler>();
+builder.Services.AddTransient<IAdicionarEncomendaModel, AdicionarEncomendaModel>();
 builder.Services.AddSmart();
 builder.Services.AddSyncfusionBlazor();
 

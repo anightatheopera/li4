@@ -8,7 +8,7 @@
 @using MercadUM.SqlDataAccess;
 @using Microsoft.AspNetCore.Mvc;
 
-
+@inject IImageHandler _dbi
 @inject IAdicionarFeiraModel _dbf
 @inject IUserAccess _dbu
 @inject IAdicionarBarracaModel _dbb
@@ -36,10 +36,18 @@
                     <InputText id="Nome" @bind-Value="barracaNova.Nome" />
                 </div>
                 <br />
-                <label> Url do Logótipo </label>
+                <label> Descrição </label>
                 <div class="form-group">
-                    <InputText id="Logótipo" @bind-Value="barracaNova.Url_logotipo" />
+                    <InputText id="Nome" @bind-Value="barracaNova.Nome" />
                 </div>
+                <br/>
+                <label>
+                Logótipo
+                <form @onsubmit="upload_image">
+                    <InputFile OnChange="OnInputFileChange" multiple class="btn btn-primary" />
+                    <button type="submit" class="btn btn-secundary">Fazer upload da imagem</button>
+                </form>
+                </label>
                 <br />
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Criar barraca</button>
 
@@ -87,6 +95,25 @@
 
     }
 
+    IReadOnlyList<IBrowserFile> ficheirosSelecionados;
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        ficheirosSelecionados = e.GetMultipleFiles();
+        this.StateHasChanged();
+    }
+
+    private async void upload_image()
+    {
+        if (ficheirosSelecionados == null)
+        {
+            await JS.InvokeVoidAsync("alert", "Nenhum ficheiro selecionado");
+            return;
+        }
+        barracaNova.Url_logotipo = await _dbi.SaveImageAsync(ficheirosSelecionados[0], "barraca_" + barracaNova.Nome);
+        await JS.InvokeVoidAsync("alert", barracaNova.Url_logotipo);
+        this.StateHasChanged();
+    }
 
 
 

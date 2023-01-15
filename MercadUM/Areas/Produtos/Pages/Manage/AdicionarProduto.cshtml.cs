@@ -72,6 +72,12 @@ namespace MercadUM.Areas.Produtos.Pages.Manage
             return _db.SaveData(sql, produto);
         }
 
+        public Task GetProdutoById(string Id_Produtos)
+        {
+            string sql = @"SELECT * FROM [dbo].[produtos] WHERE Id_Produtos = @Id_Produtos;";
+            return _db.SaveData(sql, new { Id_Produtos = Id_Produtos });
+        }
+
         public class ImageHandler : IImageHandler
         {
             private readonly string _imagePath = "wwwroot/images";

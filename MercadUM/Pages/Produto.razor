@@ -6,9 +6,11 @@
 @using MercadUM.Areas.Identity.Pages.Account;
 @using MercadUM.Areas.Produtos.Pages.Manage;
 @using MercadUM.Model;
+@using MercadUM.SqlDataAccess;
 @using Microsoft.AspNetCore.Http.Extensions;
 
-
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IUserAccess _dbua
 @inject IRegisterModel _dbu
 @inject IAdicionarBarracaModel _dbb
 @inject IAdicionarFeiraModel _dbf
@@ -115,20 +117,23 @@ else
                         </div>
                         @if (@produto.Stock > 0)
                         {
-                            <p>Em stock <span class="text-success"></span></p>
+                            <span style="color:green">Em stock </span>
                             
                         }
                         else
                         {
-                            <p>Produto esgotado <span class="text-danger"></span></p>
+                            <span style="color:red">Produto esgotado </span>
+
+                            
                         }
+                        <br/>
                         <p>
                             @produto.Descricao
                         </p>
                         <div class="d-flex flex-column flex-sm-row pt-1">
-                            @if (@produto.Stock > 0)
+                            @if (@produto.Stock > 0 && user_access.TipoDeConta == "3")
                             {
-                                <button class="button-17">Adicionar ao carrinho</button>
+                                <button class="button-17" @onclick="() => Navigate()">Adicionar ao carrinho</button>
                             }
                         </div>
                     </div>
@@ -143,6 +148,9 @@ else
 
     private List<ApplicationProduto> produtos;
     private ApplicationProduto produto;
+    private ApplicationUser user_access = new ApplicationUser();
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
 
     [Parameter]
     public string UrlProduto { get; set; }
@@ -151,6 +159,14 @@ else
     {
         produtos = await _dbp.GetProdutos();
         produto = GetProduto(produtos, UrlProduto);
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        if (user.Identity.IsAuthenticated)
+        {
+            List<ApplicationUser> arg = await _dbua.GetUserByEmail(user.Identity.Name);
+            user_access = arg[0];
+
+        }
     }
 
     public ApplicationProduto? GetProduto(List<ApplicationProduto> produtos, string nome)
@@ -168,17 +184,25 @@ else
         return null;
     }
 
-    private async Task<Stream> GetImageStreamAsync()
+    public string UrlCliente()
     {
-        return await Http.GetStreamAsync(
-            "https://avatars.githubusercontent.com/u/9141961");
+        return user_access.Id;
     }
 
-    private async Task SetImageAsync()
+    public string UrlProdutoId()
     {
-        var imageStream = await GetImageStreamAsync();
-        var dotnetImageStream = new DotNetStreamReference(imageStream);
-        await JS.InvokeVoidAsync("setImage", "image", dotnetImageStream);
+        return produto.Id_Produtos;
+    }
+
+    public string UrlBarraca()
+    {
+        return produto.Id_Barraca;
+    }
+
+    void Navigate()
+    {
+
+        UriHelper.NavigateTo(produto.Id_Produtos + "/" + user_access.Id);
     }
 
 }

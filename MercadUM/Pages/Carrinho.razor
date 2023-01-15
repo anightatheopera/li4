@@ -1,0 +1,55 @@
+﻿@page "/{UrlCliente}/Carrinho"
+@using MercadUM.Areas.Encomendas;
+@using MercadUM.Areas.Produtos.Pages.Manage;
+@using MercadUM.Model;
+
+@inject IAdicionarEncomendaModel _dbe
+@inject IAdicionarProdutoModel _dbp
+
+<PageTitle>Blazing Pizza - Checkout</PageTitle>
+
+<div class="main">
+    <div class="checkout-cols">
+        <div class="checkout-order-details">
+            <h4>Reveja o pedido order</h4>
+            
+        </div>
+    </div>
+
+    <button class="checkout-button btn btn-warning">
+         Finalizar a compra
+    </button>
+</div>
+
+
+@code {
+    ApplicationEncomenda encomenda;
+    ApplicationProduto produto;
+    List<ApplicationProduto> produtos;
+
+    [Parameter]
+    public string UrlProdutoId { get; set; }
+
+    [Parameter]
+    public string UrlCliente { get; set; }
+
+    [Parameter]
+    public string UrlBarraca { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+            encomenda = new ApplicationEncomenda();
+            encomenda.Data = DateTime.Now.ToString();
+            encomenda.Id_barraca = UrlBarraca;
+            encomenda.Id_utilizador = UrlCliente;
+            encomenda.Id_produto = UrlProdutoId;
+            await _dbe.InsertEncomenda(encomenda);
+            await _dbe.InsertEncomendaProduto(encomenda, UrlProdutoId);
+            encomenda.Preco_total += produto.Preco;
+            
+            
+        
+    }
+
+
+}
