@@ -1,10 +1,11 @@
 ﻿@page "/AdicionarFeira"
 @using MercadUM.Areas.Feiras.Pages.Manage;
 @using MercadUM.Model;
+@using MercadUM.SqlDataAccess;
 @using Microsoft.AspNetCore.Mvc;
 
 
-
+@inject IUserAccess _dbu
 @inject IAdicionarFeiraModel _dbf
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ILogger<ApplicationFeira> Logger
@@ -62,7 +63,7 @@
 
     private async void HandleValidSubmit()
     {
-        await JS.InvokeVoidAsync("alert", "Product created");
+        
 
         Logger.LogInformation("HandleSubmit called");
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -70,9 +71,13 @@
         Console.WriteLine(user.ToString());
         if (user.Identity.IsAuthenticated)
         {
-            feiraNova.Id_Organizador = user.Claims.FirstOrDefault(c => c.Type.EndsWith("nameidentifier")).Value;
+            List<ApplicationUser> arg = await _dbu.GetUserByEmail(user.Identity.Name);
+            ApplicationUser ret = arg[0];
+            feiraNova.Id_Organizador = ret.Id;
+            await JS.InvokeVoidAsync("alert", feiraNova.Id_Organizador);
             await _dbf.InsertFeira(feiraNova);
             await Task.CompletedTask;
+            
         }
         
 

@@ -54,7 +54,7 @@ namespace MercadUM.Areas.Barracas.Pages.Manage
             string sql = @"insert into dbo.barracas (Id_barracas, Id_Vendedor, Id_feira, Nome, Url_Logotipo)
                            values (@Id_barracas, @Id_Vendedor, @Id_feira, @Nome, @Url_Logotipo);";
 
-            barraca.Id_Barraca = RandomId();
+            barraca.Id_Barracas = RandomId();
             return _db.SaveData(sql, barraca);
         }
     }

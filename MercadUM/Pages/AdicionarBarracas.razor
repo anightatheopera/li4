@@ -1,11 +1,13 @@
 ﻿@page "/AdicionarBarraca"
+@attribute [Authorize(Roles = "2")]
 @using MercadUM.Areas.Feiras.Pages.Manage;
 @using MercadUM.Areas.Barracas.Pages.Manage;
 @using MercadUM.Model;
+@using MercadUM.SqlDataAccess;
 @using Microsoft.AspNetCore.Mvc;
 
 
-
+@inject IUserAccess _dbu
 @inject IAdicionarBarracaModel _dbb
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ILogger<ApplicationFeira> Logger
@@ -48,7 +50,7 @@
 
     private async void HandleValidSubmit()
     {
-        await JS.InvokeVoidAsync("alert", "Product created");
+
 
         Logger.LogInformation("HandleSubmit called");
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -56,12 +58,13 @@
         Console.WriteLine(user.ToString());
         if (user.Identity.IsAuthenticated)
         {
-            barracaNova.Id_Vendedor = user.Claims.FirstOrDefault(c => c.Type.EndsWith("nameidentifier")).Value;
+            List<ApplicationUser> arg = await _dbu.GetUserByEmail(user.Identity.Name);
+            ApplicationUser ret = arg[0];
+            barracaNova.Id_Vendedor = ret.Id;
             await _dbb.InsertBarraca(barracaNova);
             await Task.CompletedTask;
+            await JS.InvokeVoidAsync("alert", "Barraca criada");
         }
-
-
 
 
     }

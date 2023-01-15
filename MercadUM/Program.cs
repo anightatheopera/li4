@@ -37,6 +37,7 @@ builder.Services.AddTransient<IRegisterModel, RegisterModel>();
 builder.Services.AddTransient<IAdicionarBarracaModel,AdicionarBarracaModel>();
 builder.Services.AddTransient<IAdicionarFeiraModel,AdicionarFeiraModel>();
 builder.Services.AddTransient<IAdicionarProdutoModel,AdicionarProdutoModel>();
+builder.Services.AddTransient<IUserAccess, UserAccess>();
 builder.Services.AddSyncfusionBlazor();
 
 

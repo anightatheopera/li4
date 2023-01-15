@@ -51,10 +51,10 @@ namespace MercadUM.Areas.Produtos.Pages.Manage
         }
 
 
-        public Task InsertFeira(ApplicationProduto produto)
+        public Task InsertProduto(ApplicationProduto produto)
         {
-            string sql = @"insert into dbo.produtos (Id_Produtos, Nome, Descricao, Preco, Id_Feiras, Id_Barracas)
-                           values (@Id_Produto, @Nome, @Descricao, @Preco, @Id_Feiras, @Id_Barracas);";
+            string sql = @"insert into dbo.produtos (Id_Produtos, Nome, Descricao, Preco, Id_Barracas)
+                           values (@Id_Produtos, @Nome, @Descricao, @Preco, @Id_Barracas);";
             produto.Id_Produtos = RandomId();
             return _db.SaveData(sql, produto);
         }

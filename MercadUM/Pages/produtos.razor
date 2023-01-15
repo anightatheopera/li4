@@ -68,7 +68,7 @@ else
 
         foreach (var b in barracas )
         {
-            System.Diagnostics.Debug.WriteLine(b.Id_Barraca + "-------------------" + b.Nome);
+            System.Diagnostics.Debug.WriteLine(b.Id_Barracas + "-------------------" + b.Nome);
             if (b.Nome == NomeBarraca)
             {
 
@@ -93,7 +93,7 @@ else
         {
             if (vendedor.TipoDeConta == "2")
             {
-                if (vendedor.Id_Utilizador == id)
+                if (vendedor.Id== id)
                 {
                     return vendedor;
                 }

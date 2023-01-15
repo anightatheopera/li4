@@ -1,0 +1,89 @@
+﻿@page "/AdicionarProduto"
+@using MercadUM.Areas.Produtos.Pages.Manage;
+@using MercadUM.Model;
+@using Microsoft.AspNetCore.Mvc;
+
+
+
+@inject IAdicionarProdutoModel _dbp
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ILogger<ApplicationFeira> Logger
+@inject IJSRuntime JS
+
+<PageTitle>Adicionar Produtos</PageTitle>
+
+<EditForm Model="@produtoNova" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row">
+        <div class="col-md-4">
+
+            <h2>Adicione um novo produto.</h2>
+            <hr />
+            <br />
+            <label> Nome do produto </label>
+            <div class="form-group">
+                <InputText id="Nome" @bind-Value="produtoNova.Nome" />
+            </div>
+            <br />
+            <label> Descrição </label>
+            <div class="form-group">
+                <InputText id="Descricao" @bind-Value="produtoNova.Descricao" />
+            </div>
+            <br />
+            <label> Url da imagem </label>
+            <div class="form-group">
+                <InputText id="Data_inicio" @bind-Value="produtoNova.Imagem" />
+            </div>
+            <br />
+            <label> Preço </label>
+            <div class="form-group">
+                <InputNumber id="Data_fim" @bind-Value="produtoNova.Preco" />
+            </div>
+            <br />
+            <label> Stock disponível</label>
+            <div class="form-group">
+                <InputNumber id="N_barracas" @bind-Value="produtoNova.Stock" min="0" max="999" />
+            </div>
+            <br />
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Adicionar produto</button>
+
+        </div>
+    </div>
+</EditForm>
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+    private ApplicationProduto produtoNova = new ApplicationProduto();
+
+    private async void HandleValidSubmit()
+    {
+        
+
+        Logger.LogInformation("HandleSubmit called");
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        Console.WriteLine(user.ToString());
+        if (user.Identity.IsAuthenticated)
+        {
+            await _dbp.InsertProduto(produtoNova);
+            await Task.CompletedTask;
+            await JS.InvokeVoidAsync("alert", "Produto criado");
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
